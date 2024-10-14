@@ -1,5 +1,6 @@
 import { Grid, GridItem } from '@chakra-ui/react'
 import { FC } from 'react'
+import Navbar from './features/navbar/Navbar'
 
 const App: FC = () => {
   return (
@@ -8,19 +9,19 @@ const App: FC = () => {
       templateRows='auto 1fr auto'
       minHeight='100vh'
     >
-      <GridItem as="nav" colSpan={6} backgroundColor={'red'}>
-        Navbar
+      <GridItem as="nav" colSpan={6}>
+       <Navbar/>
       </GridItem>
 
-      <GridItem as="aside" colSpan={1} backgroundColor={'green'} display={{ base: 'none', lg: 'block' }}>
+      <GridItem as="aside" colSpan={1} display={{ base: 'none', lg: 'block' }}>
         Aside
       </GridItem>
 
-      <GridItem as="main" colSpan={{base : 6, lg: 5}} backgroundColor={'blue'}>
+      <GridItem as="main" colSpan={{base : 6, lg: 5}}>
         Main
       </GridItem>
 
-      <GridItem as="footer" colSpan={6} backgroundColor={'yellow'}>
+      <GridItem as="footer" colSpan={6}>
         Footer
       </GridItem>
     </Grid>
