@@ -1,8 +1,9 @@
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem, Button, useColorMode } from '@chakra-ui/react'
 import { FC } from 'react'
-import Navbar from './features/navbar/Navbar'
+import { Navbar } from './features'
 
 const App: FC = () => {
+  const { toggleColorMode } = useColorMode()
   return (
     <Grid
       templateColumns='repeat(6, 1fr)'
@@ -10,15 +11,16 @@ const App: FC = () => {
       minHeight='100vh'
     >
       <GridItem as="nav" colSpan={6}>
-       <Navbar/>
+        <Navbar />
       </GridItem>
 
       <GridItem as="aside" colSpan={1} display={{ base: 'none', lg: 'block' }}>
         Aside
       </GridItem>
 
-      <GridItem as="main" colSpan={{base : 6, lg: 5}}>
-        Main
+      <GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
+        <Button backgroundColor={'green'} onClick={toggleColorMode}>Switch color mode</Button>
+
       </GridItem>
 
       <GridItem as="footer" colSpan={6}>
