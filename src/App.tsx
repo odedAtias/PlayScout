@@ -1,5 +1,8 @@
-import { Grid, GridItem, Button, useColorMode } from '@chakra-ui/react'
+// react imports
 import { FC } from 'react'
+// third party libraries imports
+import { Grid, GridItem, Button, useColorMode } from '@chakra-ui/react'
+// file system imports
 import { Navbar } from './features'
 
 const App: FC = () => {
