@@ -1,7 +1,7 @@
 // react imports
 import { FC } from 'react'
 // third party libraries imports
-import { Grid, GridItem, Button, } from '@chakra-ui/react'
+import { Grid, GridItem } from '@chakra-ui/react'
 // file system imports
 import { Navbar } from './features'
 
