@@ -1,12 +1,11 @@
 // react imports
 import { FC } from 'react'
 // third party libraries imports
-import { Grid, GridItem, Button, useColorMode } from '@chakra-ui/react'
+import { Grid, GridItem, Button, } from '@chakra-ui/react'
 // file system imports
 import { Navbar } from './features'
 
 const App: FC = () => {
-  const { toggleColorMode } = useColorMode()
   return (
     <Grid
       templateColumns='repeat(6, 1fr)'
@@ -22,8 +21,7 @@ const App: FC = () => {
       </GridItem>
 
       <GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
-        <Button backgroundColor={'green'} onClick={toggleColorMode}>Switch color mode</Button>
-
+        Main
       </GridItem>
 
       <GridItem as="footer" colSpan={6}>
