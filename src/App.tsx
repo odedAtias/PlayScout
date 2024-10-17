@@ -6,6 +6,7 @@ import { Grid, GridItem } from '@chakra-ui/react'
 import { Navbar } from './features'
 
 const App: FC = () => {
+
   return (
     <Grid
       templateColumns='repeat(6, 1fr)'
