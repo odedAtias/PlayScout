@@ -2,7 +2,7 @@
 import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
-// file system imports
+// FS imports
 import { Navbar } from './features'
 import useFetchGames from './hooks/useFetchGames';
 
