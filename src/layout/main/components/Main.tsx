@@ -1,11 +1,15 @@
+// React imports
 import { FC } from 'react'
+// Third party libraries imports
+import { Heading } from '@chakra-ui/react'
+// FS imports
 import GamesList from '../../../features/GamesList/components/GamesList'
 
 export const Main: FC = () => {
     return (
-        <div style={{ padding: 30, backgroundColor: 'red' }}>
-            <h1>Our games</h1>
+        <>
+            <Heading>Our games</Heading>
             <GamesList />
-        </div>
+        </>
     )
 }
