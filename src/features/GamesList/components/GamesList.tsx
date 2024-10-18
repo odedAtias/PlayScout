@@ -1,4 +1,6 @@
+// React imports
 import { FC } from 'react';
+// FS imports
 import useFetchGames from '../hooks/useFetchGames'
 
 const GamesList: FC = () => {
