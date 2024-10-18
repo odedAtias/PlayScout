@@ -3,7 +3,7 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Heading } from '@chakra-ui/react'
 // FS imports
-import GamesList from '../../../features/GamesList/components/GamesList'
+import { GamesList } from '../../../features/GamesList/components'
 
 export const Main: FC = () => {
     return (
