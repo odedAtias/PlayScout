@@ -1,4 +1,4 @@
-import { CanceledError } from '../services/api-client';
+import { CanceledError } from '../features/GamesList/services/api-client';
 
 
 export const getRequestError = (err: unknown): string => {

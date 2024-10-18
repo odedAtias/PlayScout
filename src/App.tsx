@@ -3,12 +3,10 @@ import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
 // FS imports
-import { Navbar } from './features'
-import useFetchGames from './hooks/useFetchGames';
+import { Navbar, Main } from './layout'
+
 
 const App: FC = () => {
-  const { games, isLoading, error } = useFetchGames();
-  console.log(games)
 
   return (
     <Grid
@@ -24,9 +22,9 @@ const App: FC = () => {
         Aside
       </GridItem>
 
-      {<GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
-        Main
-      </GridItem>}
+      <GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
+        <Main />
+      </GridItem>
 
       <GridItem as="footer" colSpan={6}>
         Footer

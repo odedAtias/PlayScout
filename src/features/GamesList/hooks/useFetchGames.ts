@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // FS imports
 import gamesService from '../services/games-service';
 import { Game } from '../types/games';
-import { getRequestError } from '../utils/errors';
+import { getRequestError } from '../../../utils/errors';
 
 const useFetchGames = () => {
     const [games, setGames] = useState<Game[] | []>([]);
