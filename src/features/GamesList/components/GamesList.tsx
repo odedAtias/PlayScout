@@ -1,9 +1,10 @@
 // React imports
 import { FC } from 'react';
-// FS imports
-import useFetchGames from '../hooks/useFetchGames'
+// Third party libraries imports
 import { Container, SimpleGrid, Text } from '@chakra-ui/react';
 import { NotAllowedIcon } from '@chakra-ui/icons'
+// FS imports
+import useFetchGames from '../hooks/useFetchGames'
 import GameCard from './GameCard';
 import List from '../../../components/List';
 import { Game } from '../types/games';

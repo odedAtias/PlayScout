@@ -18,8 +18,8 @@ const useFetchGames = () => {
         const fetchGames = async () => {
             const { request, controller } = gamesService.getGames();
             try {
-                const { data } = await request;
-                setGames(data?.results || []);
+                const { data: { results } } = await request;
+                setGames(results || []);
             }
             catch (err) {
                 setError(getRequestError(err));

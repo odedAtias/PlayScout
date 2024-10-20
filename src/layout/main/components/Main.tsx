@@ -8,7 +8,6 @@ import GamesList from '../../../features/GamesList/components/GamesList'
 export const Main: FC = () => {
     return (
         <>
-            <Heading>Our games</Heading>
             <GamesList />
         </>
     )
