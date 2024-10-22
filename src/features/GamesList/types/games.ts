@@ -103,7 +103,7 @@ interface Requirements {
     recommended?: string | null;
 }
 
-interface ParentPlatform {
+export interface ParentPlatform {
     platform: PlatformDetailsShort;
 }
 

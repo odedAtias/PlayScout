@@ -5,7 +5,7 @@ import { Container, SimpleGrid, Text } from '@chakra-ui/react';
 import { NotAllowedIcon } from '@chakra-ui/icons'
 // FS imports
 import useFetchGames from '../hooks/useFetchGames'
-import GameCard from './GameCard';
+import GameCard from '../../GameCard/components/GameCard';
 import List from '../../../components/List';
 import { Game } from '../types/games';
 
