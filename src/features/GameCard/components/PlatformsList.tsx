@@ -1,7 +1,7 @@
 // react imports
 import { FC } from 'react'
 // Third party libraries imports
-import { Box, HStack, Text } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import { FaXbox, FaWindows, FaPlaystation, FaApple, FaAndroid, FaLinux, FaAppStoreIos } from "react-icons/fa";
 import { SiNintendo3Ds } from "react-icons/si";
 // FS imports
@@ -32,9 +32,7 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
     );
 
     return (
-        <HStack>
             <List data={platforms} renderItem={renderItem} />
-        </HStack>
     )
 }
 
