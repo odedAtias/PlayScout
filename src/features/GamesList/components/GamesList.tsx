@@ -1,13 +1,15 @@
 // React imports
 import { FC } from 'react';
 // Third party libraries imports
-import { Container, SimpleGrid, Text } from '@chakra-ui/react';
+import { Container, SimpleGrid, Text, Skeleton } from '@chakra-ui/react';
 import { NotAllowedIcon } from '@chakra-ui/icons'
 // FS imports
 import useFetchGames from '../hooks/useFetchGames'
 import GameCard from '../../GameCard/components/GameCard';
 import List from '../../../components/List';
 import { Game } from '../types/games';
+import GameCardSkeleton from '../../GameCard/components/GameCardSkeleton';
+
 
 const GamesList: FC = () => {
     const { games, error, isLoading } = useFetchGames();
@@ -26,7 +28,7 @@ const GamesList: FC = () => {
     }
 
     const renderLodaing = () => {
-        return isLoading && (<></>);
+        return isLoading && (Array(20).fill(null).map((_, index) => <GameCardSkeleton key={index} />));
     }
 
     return (
