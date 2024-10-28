@@ -1,12 +1,13 @@
 // React imports
-import { FC } from 'react'
+import { FC } from 'react';
 // Third party libraries imports
-import { Card, CardBody, Heading, HStack, Spacer } from '@chakra-ui/react';
+import { CardBody, Heading, HStack, Spacer } from '@chakra-ui/react';
 // FS imports
-import { Game } from '../../GamesList/types/games'
-import PlatformsList from './PlatformsList';
-import CriticScore from './CriticScore';
+import { Game } from '../../GamesList/types/games';
 import CardImage from './CardImage';
+import CriticScore from './CriticScore';
+import GameCardContainer from './GameCardContainer';
+import PlatformsList from './PlatformsList';
 
 interface Props {
     game: Game,
@@ -15,7 +16,7 @@ interface Props {
 const GameCard: FC<Props> = (props: Props) => {
     const { game: { id, background_image, name, parent_platforms, metacritic } } = props;
     return (
-        <Card key={id} borderRadius={10} overflow='hidden' w='300px' h='325px'>
+        <GameCardContainer key={id}>
             <CardImage imageUrl={background_image} imageAlt={`${name} image`} />
             <CardBody h='40%'>
                 <Heading fontSize={'2xl'}>{name}</Heading>
@@ -25,7 +26,7 @@ const GameCard: FC<Props> = (props: Props) => {
                     <CriticScore score={metacritic} />
                 </HStack>
             </CardBody>
-        </Card>
+        </GameCardContainer>
     )
 }
 

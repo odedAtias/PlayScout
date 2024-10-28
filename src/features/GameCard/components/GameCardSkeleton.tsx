@@ -1,9 +1,13 @@
-import { Card, CardBody, HStack, Skeleton, SkeletonCircle, SkeletonText, Spacer } from '@chakra-ui/react'
+// react imports
 import { FC } from 'react'
+// third party libraries imports
+import { CardBody, HStack, Skeleton, SkeletonCircle, SkeletonText, Spacer } from '@chakra-ui/react'
+// FS imports
+import GameCardContainer from './GameCardContainer'
 
 const GameCardSkeleton: FC = () => {
     return (
-        <Card borderRadius={10} overflow='hidden' w='300px' h='325px' >
+        <GameCardContainer>
             <Skeleton h='60%' />
             <CardBody h='40%' paddingTop={10}>
                 <HStack>
@@ -12,7 +16,7 @@ const GameCardSkeleton: FC = () => {
                     <SkeletonCircle />
                 </HStack>
             </CardBody>
-        </Card>
+        </GameCardContainer>
     )
 }
 
