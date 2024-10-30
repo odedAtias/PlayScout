@@ -1,13 +1,3 @@
-// FS imports
-import { GamesFetchResponse } from "../types/games";
-import apiClient from "./api-client";
+import create from './generic-service';
 
-class GamesService {
-    getGames() {
-        const controller: AbortController = new AbortController();
-        const request = apiClient.get<GamesFetchResponse>('/games', { signal: controller.signal });
-        return { request, controller };
-    }
-};
-
-export default new GamesService();
+export default create('/games');

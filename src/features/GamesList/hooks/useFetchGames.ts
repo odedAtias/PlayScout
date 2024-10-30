@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 // FS imports
 import gamesService from '../services/games-service';
-import { Game } from '../types/games';
+import { Game, GamesFetchResponse } from '../types/games';
 import { getRequestError } from '../../../utils/errors';
 
 const useFetchGames = () => {
@@ -16,7 +16,7 @@ const useFetchGames = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const { request, controller } = gamesService.getGames();
+            const { request, controller } = gamesService.getAll<GamesFetchResponse>();
             try {
                 const { data: { results } } = await request;
                 setGames(results || []);
