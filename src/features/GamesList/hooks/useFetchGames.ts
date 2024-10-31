@@ -5,8 +5,8 @@ import { Game, GamesFetchResponse } from '../types/games';
 
 const useFetchGames = () => {
     const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService);
-    const games: Game[] = payload?.results;
-    return { games: games, error, isLoading };
+    const games: Game[] = payload?.results || [];
+    return { games, error, isLoading };
 };
 
 export default useFetchGames;

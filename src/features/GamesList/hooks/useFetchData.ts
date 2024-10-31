@@ -5,7 +5,7 @@ import { getRequestError } from '../../../utils/errors';
 import { HttpService } from '../services/http-service'
 
 const useFetchData = <T>(service: HttpService) => {
-    const [payload, setPayload] = useState<T[] | T>([]);
+    const [payload, setPayload] = useState<T | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>('');
 
@@ -18,8 +18,7 @@ const useFetchData = <T>(service: HttpService) => {
             const { request, controller } = service.getAll<T>();
             try {
                 const { data } = await request;
-                console.log("====data", data);
-                setPayload(data || []);
+                setPayload(data);
             }
             catch (err) {
                 setError(getRequestError(err));
