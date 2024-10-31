@@ -1,6 +1,6 @@
 import apiClient from "./api-client";
 
-class HttpService {
+export class HttpService {
 
     endpoint: string;
 
@@ -13,9 +13,8 @@ class HttpService {
         const request = apiClient.get<T>(this.endpoint, { signal: controller.signal });
         return { request, controller };
     }
-};
 
-// '/games'
+};
 
 const create = (endpoint: string) => new HttpService(endpoint);
 

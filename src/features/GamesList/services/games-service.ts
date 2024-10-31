@@ -1,3 +1,3 @@
-import create from './generic-service';
+import create from './http-service';
 
 export default create('/games');
