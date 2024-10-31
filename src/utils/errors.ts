@@ -1,5 +1,5 @@
 // FS imports
-import { CanceledError } from '../features/GamesList/services/api-client';
+import { CanceledError } from '../services/api-client';
 
 
 export const getRequestError = (err: unknown): string => {

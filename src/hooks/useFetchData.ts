@@ -1,7 +1,7 @@
 // React imports
 import { useState, useEffect } from 'react';
 // FS imports
-import { getRequestError } from '../../../utils/errors';
+import { getRequestError } from '../utils/errors';
 import { HttpService } from '../services/http-service'
 
 const useFetchData = <T>(service: HttpService) => {

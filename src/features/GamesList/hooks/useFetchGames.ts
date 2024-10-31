@@ -1,5 +1,5 @@
 // FS imports
-import useFetchData from './useFetchData';
+import useFetchData from '../../../hooks/useFetchData';
 import gamesService from '../services/games-service';
 import { Game, GamesFetchResponse } from '../types/games';
 
