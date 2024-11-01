@@ -1,3 +1,3 @@
-import create from '../../../services/http-service';
+import { HttpService } from "../../../services/http-service";
 
-export default create('/games');
+export default new HttpService('/games');

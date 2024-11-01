@@ -9,9 +9,7 @@ const useFetchData = <T>(service: HttpService) => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>('');
 
-    const cleanUp = (controller: AbortController) => {
-        return controller.abort();
-    };
+    const cleanUp = (controller: AbortController) => controller.abort();
 
     useEffect(() => {
         const fetchData = async () => {

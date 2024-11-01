@@ -22,18 +22,16 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
         'mac': <FaApple />,
         'android': <FaAndroid />,
         'linux': <FaLinux />,
-        'ios' : <FaAppStoreIos/>
+        'ios': <FaAppStoreIos />
     });
 
-    const renderItem = (item: ParentPlatform) => (
+    const renderItem = (item: ParentPlatform) =>
         <Box key={item.platform.id}>
             {platformsIcons[item.platform.slug] || <Text>{item.platform.slug}</Text>}
         </Box>
-    );
+        ;
 
-    return (
-            <List data={platforms} renderItem={renderItem} />
-    )
+    return <List data={platforms} renderItem={renderItem} />
 }
 
 export default PlatformsList

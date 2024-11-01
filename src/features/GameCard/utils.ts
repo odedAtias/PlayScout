@@ -1,0 +1,1 @@
+export const getColorByScore = (score: number) => score > 80 ? 'green' : score > 70 ? 'yellow' : 'red';
