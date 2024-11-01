@@ -1,15 +1,19 @@
-import React from 'react'
+import { FC } from 'react'
 
 import { useFetchGenres } from '../hooks'
+import { Genre } from '../types';
 
-const GenresList = () => {
-    const { payload, error, isLoading } = useFetchGenres();
+import { Text } from '@chakra-ui/react'
 
-    console.info('========payload', payload);
+const GenresList: FC = () => {
+    const { genres, error, isLoading } = useFetchGenres();
+
 
 
     return (
-        <div>GenresList</div>
+        <div>
+            {genres?.map((g: Genre) => <Text key={g.id}>{g.name}</Text>)}
+        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import gamesService from '../services/games-service';
 import { GamesFetchResponse } from '../types/games';
 
 export const useFetchGames = () => {
-    const response = useFetchData<GamesFetchResponse>(gamesService);
-    return { ...response, games: response?.payload?.results || [] };
+    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService);
+    const games = payload?.results || [];
+    return { games, error, isLoading };
 };
