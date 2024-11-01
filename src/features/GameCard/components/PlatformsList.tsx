@@ -5,7 +5,7 @@ import { Box, Text } from '@chakra-ui/react'
 import { FaXbox, FaWindows, FaPlaystation, FaApple, FaAndroid, FaLinux, FaAppStoreIos } from "react-icons/fa";
 import { SiNintendo3Ds } from "react-icons/si";
 // FS imports
-import { ParentPlatform } from '../../GamesList/types/games'
+import { ParentPlatform } from '../../GamesList/types'
 import List from '../../../components/List';
 
 interface Props {

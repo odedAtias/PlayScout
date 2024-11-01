@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react';
 // Third party libraries imports
-import { SimpleGrid} from '@chakra-ui/react';
+import { SimpleGrid } from '@chakra-ui/react';
 // FS imports
 import { useFetchGames } from '../hooks';
 import GameCard from '../../GameCard/components/GameCard';
@@ -17,7 +17,6 @@ const GamesList: FC = () => {
     const renderItem = (game: Game) => <GameCard key={game.id} game={game} />
     const renderError = () => error && (<ErrorMessage message={error} />);
     const renderLoading = () => isLoading && Array.from({ length: 20 }, (_, index) => <GameCardSkeleton key={index} />);
-
 
     return (
         <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} placeItems={'center'} gap={{ base: 5, md: 10 }}>
