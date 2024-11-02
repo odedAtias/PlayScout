@@ -3,9 +3,8 @@ import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
 // FS imports
-import { Navbar, Main } from './layout'
+import { Navbar, Main, Aside } from './layout'
 
-import GenresList from './features/GenresList/components/GenresList';
 
 
 const App: FC = () => {
@@ -21,7 +20,7 @@ const App: FC = () => {
       </GridItem>
 
       <GridItem as="aside" colSpan={1} display={{ base: 'none', lg: 'block' }}>
-        <GenresList />
+        <Aside />
       </GridItem>
 
       <GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
