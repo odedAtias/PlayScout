@@ -5,6 +5,7 @@ import { useFetchGenres } from '../hooks'
 import { Genre } from '../types';
 import List from '../../../components/List';
 import GenreItem from '../../GenreItem/components/GenreItem';
+import { Container } from '@chakra-ui/react';
 
 
 const GenresList: FC = () => {
@@ -25,7 +26,9 @@ const GenresList: FC = () => {
 
 
     return (
-        <List data={genres} renderItem={renderItem} renderError={renderError} renderLoading={renderLoading} />
+        <Container>
+            <List data={genres} renderItem={renderItem} renderError={renderError} renderLoading={renderLoading} />
+        </Container>
     )
 }
 

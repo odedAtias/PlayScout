@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Image } from '@chakra-ui/react';
 
 interface Props {
     image_background: string;
@@ -7,7 +8,7 @@ interface Props {
 
 const GenreImage: FC<Props> = ({ image_background, name }) => {
     return (
-        <img src={image_background} alt={`Image of ${name} genre`} width={'45px'} />
+        <Image src={image_background} alt={`Image of ${name} genre`} boxSize='30px' fit='cover' borderRadius={'5px'} />
     )
 }
 

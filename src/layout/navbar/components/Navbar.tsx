@@ -9,7 +9,7 @@ import { ColorModeSwitcher } from './';
 export const Navbar: FC = () => {
     return (
         <HStack padding={'1rem'}>
-            <Image src={Logo} aria-label='Logo image' boxSize={{ base: '50px', lg: '70px', xl: '90px' }} borderRadius={'50%'} />
+            <Image src={Logo} aria-label='Logo image' boxSize={{ base: '50px', lg: '70px', xl: '90px' }} borderRadius={'15px'} />
             <ColorModeSwitcher />
         </HStack >
     )
