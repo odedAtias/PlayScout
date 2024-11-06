@@ -1,5 +1,7 @@
-import { HStack } from '@chakra-ui/react'
-import { FC, ReactNode } from 'react'
+// React imports
+import { FC, ReactNode } from 'react';
+// Third party libraries imports
+import { HStack } from '@chakra-ui/react';
 
 interface Props {
     children: ReactNode,

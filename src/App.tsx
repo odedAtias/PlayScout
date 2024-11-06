@@ -8,7 +8,6 @@ import { Navbar, Main, Aside } from './layout'
 
 
 const App: FC = () => {
-
   return (
     <Grid
       templateColumns='repeat(6, 1fr)'

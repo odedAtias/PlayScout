@@ -23,8 +23,6 @@ const GenresList: FC = () => {
         return error && <></>;
     };
 
-
-
     return (
         <Container>
             <List data={genres} renderItem={renderItem} renderError={renderError} renderLoading={renderLoading} />

@@ -1,4 +1,6 @@
+// React imports
 import { FC } from 'react'
+// Third party libraries
 import { Image } from '@chakra-ui/react';
 
 interface Props {
