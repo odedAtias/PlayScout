@@ -1,7 +1,8 @@
 // React imports
-import { HStack, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { FC } from 'react'
 import GenreImage from './GenreImage';
+import GenreItemContainer from './GenreItemContainer';
 
 interface Props {
     name: string;
@@ -10,10 +11,10 @@ interface Props {
 
 const GenreItem: FC<Props> = ({ name, image_background }: Props) => {
     return (
-        <HStack mb={3}>
+        <GenreItemContainer>
             <GenreImage name={name} image_background={image_background} />
             <Text noOfLines={1}>{name}</Text>
-        </HStack>
+        </GenreItemContainer>
     )
 }
 

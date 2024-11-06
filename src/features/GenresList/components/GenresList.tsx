@@ -1,11 +1,13 @@
 // React imports
 import { FC } from 'react'
+// Third party libraries imports
+import { Container } from '@chakra-ui/react';
 // FS imports
 import { useFetchGenres } from '../hooks'
 import { Genre } from '../types';
 import List from '../../../components/List';
 import GenreItem from '../../GenreItem/components/GenreItem';
-import { Container } from '@chakra-ui/react';
+import GenreItemSkeleton from '../../GenreItem/components/GenreItemSkeleton';
 
 
 const GenresList: FC = () => {
@@ -15,9 +17,7 @@ const GenresList: FC = () => {
         return <GenreItem key={genre?.id} name={genre?.name} image_background={genre.image_background} />;
     };
 
-    const renderLoading = (genre: Genre) => {
-        return isLoading && <></>
-    };
+    const renderLoading = () => isLoading && Array.from({ length: 15 }, (_, index) => <GenreItemSkeleton key={index} />);
 
     const renderError = () => {
         return error && <></>;
