@@ -1,4 +1,5 @@
 // FS imports
+import { AxiosRequestConfig } from "axios";
 import apiClient from "./api-client";
 
 export class HttpService {
@@ -9,9 +10,9 @@ export class HttpService {
         this.endpoint = endpoint;
     }
 
-    getAll<T>() {
+    getAll<T>(requestConfig: AxiosRequestConfig = {}) {
         const controller: AbortController = new AbortController();
-        const request = apiClient.get<T>(this.endpoint, { signal: controller.signal });
+        const request = apiClient.get<T>(this.endpoint, { signal: controller.signal, ...requestConfig });
         return { request, controller };
     }
 

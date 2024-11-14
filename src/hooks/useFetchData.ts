@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 // FS imports
 import { getRequestError } from '../utils/errors';
 import { HttpService } from '../services/http-service'
+import { AxiosRequestConfig } from 'axios';
 
-const useFetchData = <T>(service: HttpService) => {
+const useFetchData = <T>(service: HttpService, requestConfig: AxiosRequestConfig = {}, dependencies: any[] = []) => {
     const [payload, setPayload] = useState<T | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>('');
@@ -13,7 +14,7 @@ const useFetchData = <T>(service: HttpService) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const { request, controller } = service.getAll<T>();
+            const { request, controller } = service.getAll<T>(requestConfig);
             try {
                 const { data } = await request;
                 setPayload(data);
@@ -27,7 +28,7 @@ const useFetchData = <T>(service: HttpService) => {
             () => cleanUp(controller);
         };
         fetchData();
-    }, []);
+    }, [...dependencies]);
 
     return { payload, isLoading, error };
 };
