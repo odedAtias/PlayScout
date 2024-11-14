@@ -1,25 +1,17 @@
 interface Props<T> {
     data: T[],
     renderItem: (item: T) => JSX.Element,
-    renderError?: () => JSX.Element | '',
-    renderLoading?: () => JSX.Element[] | JSX.Element | false,
+    renderError: () => JSX.Element | '',
+    renderLoading: () => JSX.Element[] | JSX.Element | false,
 }
 
 const List = <T,>({ data, renderItem, renderError, renderLoading }: Props<T>) => {
-
-    if (renderLoading && data.length == 0) {
-        return renderLoading()
-    }
-
-    else if (renderError && data.length === 0) {
-        return renderError();
-    }
-
-    return (
-        data?.map((item: T) => {
-            return renderItem(item);
-        })
-    )
+    console.info('========renderLoading',renderLoading);
+    return <>
+        {renderLoading && renderLoading()}
+        {renderError && renderError()}
+        {data?.length > 0 && data?.map((item: T) => renderItem(item))}
+    </>
 }
 
 export default List

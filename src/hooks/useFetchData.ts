@@ -13,6 +13,7 @@ const useFetchData = <T>(service: HttpService, requestConfig: AxiosRequestConfig
     const cleanUp = (controller: AbortController) => controller.abort();
 
     useEffect(() => {
+        setIsLoading(true);
         const fetchData = async () => {
             const { request, controller } = service.getAll<T>(requestConfig);
             try {
