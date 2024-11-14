@@ -1,4 +1,6 @@
+// Third party libraries imports
 import { configureStore } from '@reduxjs/toolkit';
+// FS imports
 import genreReducer from './genre/genreSlice';
 
 export const store = configureStore({ reducer: genreReducer });

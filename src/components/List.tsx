@@ -6,7 +6,6 @@ interface Props<T> {
 }
 
 const List = <T,>({ data, renderItem, renderError, renderLoading }: Props<T>) => {
-    console.info('========renderLoading',renderLoading);
     return <>
         {renderLoading && renderLoading()}
         {renderError && renderError()}

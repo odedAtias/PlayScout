@@ -1,3 +1,4 @@
+// Third party libraries imports
 import { createSlice } from "@reduxjs/toolkit";
 
 interface GenreState {

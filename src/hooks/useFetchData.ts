@@ -5,7 +5,7 @@ import { getRequestError } from '../utils/errors';
 import { HttpService } from '../services/http-service'
 import { AxiosRequestConfig } from 'axios';
 
-const useFetchData = <T>(service: HttpService, requestConfig: AxiosRequestConfig = {}, dependencies: any[] = []) => {
+const useFetchData = <T>(service: HttpService, requestConfig: AxiosRequestConfig = {}, dependencies: T[] = []) => {
     const [payload, setPayload] = useState<T | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>('');
