@@ -1,5 +1,5 @@
 // Third party libraries imports
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface GenreState {
     selectedGenre: number | null;
@@ -13,7 +13,7 @@ const genreSlice = createSlice({
     name: "genre",
     initialState,
     reducers: {
-        selectGenre: (state, action) => {
+        selectGenre: (state, action: PayloadAction<number>) => {
             state.selectedGenre = action.payload;
         },
         deselectGenre: (state) => {
