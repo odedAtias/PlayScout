@@ -15,7 +15,7 @@ import { deselectGenre, selectGenre } from '../../../store/genre/genreSlice';
 
 const GenresList: FC = () => {
     const { genres, error, isLoading } = useFetchGenres();
-    const selectedGenre = useSelector((state: RootState) => state.selectedGenre);
+    const { selectedGenre } = useSelector((state: RootState) => state.genre);
 
     const dispatch = useDispatch<AppDispatch>();
 
@@ -24,7 +24,7 @@ const GenresList: FC = () => {
     };
 
     const renderItem = (genre: Genre) => {
-        return <GenreItem key={genre?.id} name={genre?.name} image_background={genre.image_background} onClick={() => handleClickGenre(genre?.id)} />;
+        return <GenreItem key={genre?.id} name={genre?.name} image_background={genre.image_background} onClick={() => handleClickGenre(genre?.id)} isSelected={genre?.id === selectedGenre} />;
     };
 
     const renderLoading = () => isLoading && Array.from({ length: 15 }, (_, index) => <GenreItemSkeleton key={index} />);
