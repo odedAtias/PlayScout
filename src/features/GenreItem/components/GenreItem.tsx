@@ -14,8 +14,10 @@ interface Props {
 }
 
 const GenreItem: FC<Props> = ({ name, image_background, onClick, isSelected = false }) => {
+   
     const textColor = useColorModeValue('black', 'white');
-    const backgroundColor = isSelected ? useColorModeValue('white', 'gray.700') : 'transparent';
+    const selectedBackgroundColor = useColorModeValue('white', 'gray.700');
+    const backgroundColor = isSelected ? selectedBackgroundColor : 'transparent';
 
     return (
         <GenreItemContainer customStyle={{ backgroundColor }}>
