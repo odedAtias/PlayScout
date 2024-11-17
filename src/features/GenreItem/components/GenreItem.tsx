@@ -1,5 +1,8 @@
+// React imports
 import { FC } from 'react';
+// Third party libraries imports
 import { Button, useColorModeValue } from '@chakra-ui/react';
+// FS imports
 import GenreImage from './GenreImage';
 import GenreItemContainer from './GenreItemContainer';
 
