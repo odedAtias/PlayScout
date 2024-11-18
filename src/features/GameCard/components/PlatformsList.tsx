@@ -31,7 +31,7 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
         </Box>
         ;
 
-    return <List data={platforms} renderItem={renderItem} />
+    return <List data={platforms} renderItem={renderItem} renderError={() => ""} renderLoading={() => false} />
 }
 
 export default PlatformsList
