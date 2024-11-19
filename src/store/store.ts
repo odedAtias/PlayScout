@@ -2,12 +2,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 // FS imports
 import genreReducer from './genre/genreSlice';
+import platformReducer from './platforms/platformsSlice';
 
 export const store = configureStore({
     reducer: {
         genre: genreReducer,
-        // Add other reducers here if needed...
-
+        platform: platformReducer,
     }
 });
 
