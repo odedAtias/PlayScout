@@ -5,7 +5,7 @@ export interface PlatfromsFetchResponse {
     results: Platform[];
 }
 
-interface Platform {
+export interface Platform {
     id: number;
     name: string;
     slug: string;
