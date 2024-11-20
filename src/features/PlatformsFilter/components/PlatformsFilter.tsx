@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react'
 // Third party libraries imports
-import { MenuItem, Box } from "@chakra-ui/react"
+import { MenuItem } from "@chakra-ui/react"
 import { useDispatch } from 'react-redux'
 // FS imports
 import { useFetchPlatforms } from '../hooks'
@@ -28,9 +28,7 @@ const PlatformsFilter: FC = () => {
     };
 
     return (
-        <Box marginLeft={20} marginBottom={"3%"} marginTop={2}>
-            <GenericMenu title='Platforms' list={platforms} renderItem={renderItem} />
-        </Box>
+        <GenericMenu title='Platforms' list={platforms} renderItem={renderItem} />
     )
 }
 
