@@ -7,8 +7,8 @@ import { GamesFetchResponse } from '../types/games';
 import { RootState } from '../../../store/store';
 
 export const useFetchGames = () => {
-    const { selectedGenre, selectedPlatform } = useSelector((state: RootState) => state.gamesParams);
-    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params: { genres: selectedGenre, parent_platforms: selectedPlatform } }, [selectedGenre, selectedPlatform]);
+    const { selectedGenre, selectedPlatform, selctedOrderOption } = useSelector((state: RootState) => state.gamesParams);
+    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params: { genres: selectedGenre, parent_platforms: selectedPlatform, ordering: selctedOrderOption } }, [selectedGenre, selectedPlatform, selctedOrderOption]);
     const games = payload?.results || [];
     return { games, error, isLoading };
 };
