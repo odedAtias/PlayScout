@@ -8,7 +8,7 @@ import { useFetchPlatforms } from '../hooks'
 import { Platform } from '../types'
 import GenericMenu from '../../../components/GenericMenu'
 import { AppDispatch } from '../../../store/store'
-import { selectPlatform } from '../../../store/platforms/platformsSlice'
+import { selectPlatform } from '../../../store/gamesParams/gamesParamsSlice'
 
 const PlatformsFilter: FC = () => {
     const dispatch = useDispatch<AppDispatch>();

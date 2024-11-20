@@ -1,13 +1,11 @@
 // Third party libraries imports
 import { configureStore } from '@reduxjs/toolkit';
 // FS imports
-import genreReducer from './genre/genreSlice';
-import platformReducer from './platforms/platformsSlice';
+import gamesParamsReducer from './gamesParams/gamesParamsSlice';
 
 export const store = configureStore({
     reducer: {
-        genre: genreReducer,
-        platform: platformReducer,
+        gamesParams: gamesParamsReducer,
     }
 });
 

@@ -10,12 +10,12 @@ import List from '../../../components/List';
 import GenreItem from '../../GenreItem/components/GenreItem';
 import GenreItemSkeleton from '../../GenreItem/components/GenreItemSkeleton';
 import { AppDispatch, RootState } from '../../../store/store';
-import { deselectGenre, selectGenre } from '../../../store/genre/genreSlice';
+import { deselectGenre, selectGenre } from '../../../store/gamesParams/gamesParamsSlice';
 
 
 const GenresList: FC = () => {
     const { genres, error, isLoading } = useFetchGenres();
-    const { selectedGenre } = useSelector((state: RootState) => state.genre);
+    const { selectedGenre } = useSelector((state: RootState) => state.gamesParams);
 
     const dispatch = useDispatch<AppDispatch>();
 
