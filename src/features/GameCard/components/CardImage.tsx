@@ -9,13 +9,12 @@ interface Props {
     imageAlt: string,
 }
 
-const CardImage: FC<Props> = ({ imageUrl, imageAlt }: Props) => {
-
-    const optimizedImageUrl = useMemo(() => getOptimizedCardImage(imageUrl), [imageUrl])
+const CardImage: FC<Props> = ({ imageUrl, imageAlt }) => {
+    const optimizedImageUrl = useMemo(() => getOptimizedCardImage(imageUrl), [imageUrl]);
 
     return (
         <GenericImage imageUrl={optimizedImageUrl} imageAlt={imageAlt} imageProps={{ h: '60%' }} />
-    )
-}
+    );
+};
 
 export default CardImage
