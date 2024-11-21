@@ -10,10 +10,6 @@ interface Props {
 }
 
 const CardImage: FC<Props> = ({ imageUrl, imageAlt }) => {
-    if (!imageUrl) {
-        return null;
-    }
-
     const optimizedImageUrl = useMemo(() => getOptimizedCardImage(imageUrl), [imageUrl]);
 
     return (
