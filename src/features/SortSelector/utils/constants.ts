@@ -2,6 +2,7 @@
 import { OrderOption } from "../types/types";
 
 export const ORDERING_OPTIONS: OrderOption[] = [
+    { id: 0, name: "none", label: "None" },
     { id: 1, name: "name", label: "Name" },
     { id: 2, name: "released", label: "Released" },
     { id: 3, name: "added", label: "Added" },

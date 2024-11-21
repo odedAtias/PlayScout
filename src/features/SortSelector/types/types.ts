@@ -4,6 +4,6 @@ export type OrderOption = {
     label: orderLabelType;
 };
 
-export type orderType = "name" | "released" | "added" | "created" | "updated" | "rating" | "metacritic";
+export type orderType = "name" | "released" | "added" | "created" | "updated" | "rating" | "metacritic" | "none";
 
-export type orderLabelType = "Name" | "Released" | "Added" | "Created" | "Updated" | "Rating" | "Metacritic";
+export type orderLabelType = "Name" | "Released" | "Added" | "Created" | "Updated" | "Rating" | "Metacritic" | "None";
