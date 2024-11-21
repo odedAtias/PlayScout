@@ -5,14 +5,14 @@ import { orderType } from "../../features/SortSelector/types/types";
 interface GamesParams {
     selectedGenre: number | null;
     selectedPlatform: number | null;
-    selctedOrderOption: orderType
+    selctedOrderOption: orderType | null;
 
 };
 
 const initialState: GamesParams = {
     selectedGenre: null,
     selectedPlatform: null,
-    selctedOrderOption: 'name',
+    selctedOrderOption: null,
 };
 
 const gamesParamsSlice = createSlice({

@@ -29,7 +29,7 @@ const GamesSortBySelector: FC = () => {
     };
 
     return (
-        <GenericMenu title={`Order By: ${capitalizeFirstLetter(selctedOrderOption)}`} list={ORDERING_OPTIONS} renderItem={renderItem} />
+        <GenericMenu title={`Order By: ${capitalizeFirstLetter(selctedOrderOption || "none")}`} list={ORDERING_OPTIONS} renderItem={renderItem} />
     );
 }
 
