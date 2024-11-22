@@ -13,7 +13,7 @@ interface Props<T> {
     renderItem: (item: T) => ReactNode;
 }
 
-const MotionChevronDownIcon = motion(
+const MotionChevronDownIcon = motion.create(
     forwardRef<SVGSVGElement, ComponentProps<typeof ChevronDownIcon>>(
         (props, ref) => <ChevronDownIcon boxSize={'1.2rem'} ref={ref} {...props} />
     )
