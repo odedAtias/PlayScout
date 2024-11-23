@@ -5,8 +5,6 @@ import { Grid, GridItem } from '@chakra-ui/react'
 // FS imports
 import { Navbar, Main, Aside } from './layout'
 
-
-
 const App: FC = () => {
   return (
     <Grid

@@ -1,5 +1,6 @@
 // Third parties libraries imports
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+// FS imports
 import { orderType } from "../../features/SortSelector/types/types";
 
 interface GamesParams {

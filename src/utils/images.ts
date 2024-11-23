@@ -1,3 +1,4 @@
+// FS imports
 import { Placeholder } from "../assets/images";
 
 export const getOptimizedCardImage = (imageUrl: string): string => {

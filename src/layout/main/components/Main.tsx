@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 // Third-party libraries imports
 import { HStack } from '@chakra-ui/react';
 // FS imports

@@ -1,9 +1,10 @@
 // React imports
 import { useState, useEffect } from 'react';
+// Third party libraries imports
+import { AxiosRequestConfig } from 'axios';
 // FS imports
 import { getRequestError } from '../utils/errors';
 import { HttpService } from '../services/http-service'
-import { AxiosRequestConfig } from 'axios';
 
 
 const useFetchData = <T>(service: HttpService, requestConfig: AxiosRequestConfig = {}, dependencies: unknown[] = []) => {
