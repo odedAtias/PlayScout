@@ -8,7 +8,14 @@ import { RootState } from '../../../store/store';
 
 export const useFetchGames = () => {
     const { selectedGenre, selectedPlatform, selctedOrderOption } = useSelector((state: RootState) => state.gamesParams);
-    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params: { genres: selectedGenre, parent_platforms: selectedPlatform, ordering: selctedOrderOption === "none" ? null : selctedOrderOption } }, [selectedGenre, selectedPlatform, selctedOrderOption]);
+    const params = Object.freeze({
+        genres: selectedGenre,
+        parent_platforms: selectedPlatform,
+        ordering: selctedOrderOption === "none" ? null : selctedOrderOption,
+        page: 1,
+        page_size: 30,
+    });
+    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params }, [selectedGenre, selectedPlatform, selctedOrderOption]);
     const games = payload?.results || [];
     return { games, error, isLoading };
 };

@@ -22,7 +22,7 @@ const App: FC = () => {
         <Aside />
       </GridItem>
 
-      <GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
+      <GridItem as="main" colSpan={{ base: 6, lg: 5 }} onScroll={() => alert("hi")}>
         <Main />
       </GridItem>
 
