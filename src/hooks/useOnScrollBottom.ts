@@ -1,15 +1,15 @@
 // React imports
 import { useEffect } from "react";
 
-const useOnScrollBottom = (callback: () => void) => {
+const useOnScrollBottom = (onScroll: () => void) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const { scrollY: scrollTop, innerHeight: windowHeight } = window;
+            const { scrollY: top, innerHeight: windowHeight } = window;
             const { scrollHeight: fullHeight } = document?.documentElement;
 
-            if (scrollTop + windowHeight >= fullHeight) {
-                callback();
+            if (top + windowHeight >= fullHeight) {
+                onScroll();
             }
         };
 
@@ -18,7 +18,7 @@ const useOnScrollBottom = (callback: () => void) => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-        
+
     }, []);
 };
 
