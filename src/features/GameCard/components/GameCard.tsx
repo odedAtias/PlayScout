@@ -16,7 +16,7 @@ interface Props {
 const GameCard: FC<Props> = (props: Props) => {
     const { game: { id, background_image, name, parent_platforms, metacritic } } = props;
     return (
-        <GameCardContainer key={id}>
+        <GameCardContainer >
             <CardImage imageUrl={background_image} imageAlt={`${name} image`} />
             <CardBody h='40%'>
                 <Heading fontSize={'2xl'} noOfLines={2}>{name}</Heading>
