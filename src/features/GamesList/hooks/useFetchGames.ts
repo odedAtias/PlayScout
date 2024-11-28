@@ -10,7 +10,7 @@ import { useEffect, useState, useCallback } from 'react';
 import useOnScrollBottom from './useOnScrollBottom';
 import { PAGE_SIZE } from '../utils/constants';
 
-type ParamsDependencies = string | number | orderType | null;
+type ParamDependency = string | number | orderType | null;
 
 interface Params {
     genres: number | null;
@@ -21,14 +21,17 @@ interface Params {
 }
 
 export const useFetchGames = () => {
-    const { selectedGenre, selectedPlatform, selctedOrderOption } = useSelector((state: RootState) => state.gamesParams);
+    const { selectedGenre, selectedPlatform, selctedOrderOption } = useSelector(
+        (state: RootState) => state.gamesParams
+    );
 
     const [page, setPage] = useState<number>(1);
-    const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
     const [games, setGames] = useState<Game[]>([]);
-    const [isFetching, setIsFetching] = useState<boolean>(false); // Prevent overlapping fetches
 
-    const paramsDependencies: ParamsDependencies[] = [
+    const [isFetching, setIsFetching] = useState<boolean>(false); // Prevent overlapping fetches
+    const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
+
+    const paramsDependencies: ParamDependency[] = [
         selectedGenre,
         selectedPlatform,
         selctedOrderOption,
@@ -44,28 +47,37 @@ export const useFetchGames = () => {
     };
 
     const fetchMoreGames = useCallback(() => {
-        // Enable to fetch more games only after the previous fetch has finished
+        // Enable fetching more games only after the previous fetch has finished
         if (!needToFetchMore && !isFetching) {
             setNeedToFetchMore(true);
             setPage((prevPage: number) => prevPage + 1);
         }
     }, [needToFetchMore, isFetching]);
 
-    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params }, paramsDependencies);
+    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(
+        gamesService,
+        { params },
+        paramsDependencies
+    );
+
+    useEffect(() => {
+        setPage(1);
+    }, [selectedGenre, selectedPlatform, selctedOrderOption]);
 
     useEffect(() => {
         if (payload?.results) {
-            setGames((prevGames: Game[]) => {
-                const existingIds = new Set(prevGames.map((game) => game.id));
-                const newGames = payload.results.filter((game: Game) => !existingIds.has(game.id));
-                return [...prevGames, ...newGames];
-            });
+            if (page > 1) {
+                const newGames = payload?.results || [];
+                setGames((prevGames: Game[]) => ([...prevGames, ...newGames]));
+            }
+            else {
+                setGames(payload?.results || []);
+            }
         }
         setNeedToFetchMore(false);
         setIsFetching(false);
     }, [payload?.results]);
 
-    // Prevent multiple fetchMoreGames calls in quick succession
     useEffect(() => {
         if (needToFetchMore) {
             setIsFetching(true);
