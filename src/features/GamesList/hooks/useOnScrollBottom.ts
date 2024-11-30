@@ -1,3 +1,4 @@
+// React imports
 import { useEffect } from 'react';
 
 function useOnScrollBottom(onScrollToBottom: () => void) {
@@ -7,7 +8,7 @@ function useOnScrollBottom(onScrollToBottom: () => void) {
             const { scrollY, innerHeight } = window;
             const fullHeight = document.documentElement.scrollHeight;
 
-            if (scrollY + innerHeight >= fullHeight) {
+            if (scrollY + innerHeight + 1 >= fullHeight) {
                 onScrollToBottom();
             }
         };

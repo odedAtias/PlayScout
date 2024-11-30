@@ -1,14 +1,15 @@
 // Third party libraries imports
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // FS imports
 import useFetchData from '../../../hooks/useFetchData';
 import gamesService from '../services/games-service';
+import useOnScrollBottom from './useOnScrollBottom';
 import { Game, GamesFetchResponse } from '../types/games';
-import { RootState } from '../../../store/store';
+import { AppDispatch, RootState } from '../../../store/store';
 import { orderType } from '../../SortSelector/types/types';
 import { useEffect, useState, useCallback } from 'react';
-import useOnScrollBottom from './useOnScrollBottom';
 import { PAGE_SIZE } from '../utils/constants';
+import { incrementPage, resetPage } from '../../../store/gamesParams/gamesParamsSlice';
 
 type ParamDependency = string | number | orderType | null;
 
@@ -21,22 +22,16 @@ interface Params {
 }
 
 export const useFetchGames = () => {
-    const { selectedGenre, selectedPlatform, selctedOrderOption } = useSelector(
-        (state: RootState) => state.gamesParams
-    );
+    const { selectedGenre, selectedPlatform, selctedOrderOption, page } = useSelector((state: RootState) => state.gamesParams);
 
-    const [page, setPage] = useState<number>(1);
     const [games, setGames] = useState<Game[]>([]);
 
-    const [isFetching, setIsFetching] = useState<boolean>(false); // Prevent overlapping fetches
+    const [isFetchingMore, setIsFetchingMore] = useState<boolean>(false); // Prevent overlapping fetches
     const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
 
-    const paramsDependencies: ParamDependency[] = [
-        selectedGenre,
-        selectedPlatform,
-        selctedOrderOption,
-        page,
-    ];
+    const dispatch = useDispatch<AppDispatch>();
+
+    const paramsDependencies: ParamDependency[] = [selectedGenre, selectedPlatform, selctedOrderOption, page];
 
     const params: Params = {
         genres: selectedGenre,
@@ -48,43 +43,31 @@ export const useFetchGames = () => {
 
     const fetchMoreGames = useCallback(() => {
         // Enable fetching more games only after the previous fetch has finished
-        if (!needToFetchMore && !isFetching) {
+        if (!needToFetchMore && !isFetchingMore) {
+            dispatch(incrementPage());
             setNeedToFetchMore(true);
-            setPage((prevPage: number) => prevPage + 1);
         }
-    }, [needToFetchMore, isFetching]);
+    }, [needToFetchMore, isFetchingMore]);
 
-    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(
-        gamesService,
-        { params },
-        paramsDependencies
-    );
+    const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params }, paramsDependencies);
 
     useEffect(() => {
-        setPage(1);
+        page > 1 && dispatch(resetPage());
     }, [selectedGenre, selectedPlatform, selctedOrderOption]);
 
     useEffect(() => {
-        if (payload?.results) {
-            if (page > 1) {
-                const newGames = payload?.results || [];
-                setGames((prevGames: Game[]) => ([...prevGames, ...newGames]));
-            }
-            else {
-                setGames(payload?.results || []);
-            }
+        if (payload?.results && payload?.results?.length > 0) {
+            setGames((prevGames: Game[]) => (page > 1 ? [...prevGames, ...payload?.results] : [...payload?.results]));
+            setNeedToFetchMore(false);
+            setIsFetchingMore(false);
         }
-        setNeedToFetchMore(false);
-        setIsFetching(false);
     }, [payload?.results]);
 
     useEffect(() => {
-        if (needToFetchMore) {
-            setIsFetching(true);
-        }
+        needToFetchMore && setIsFetchingMore(true);
     }, [needToFetchMore]);
 
     useOnScrollBottom(fetchMoreGames);
 
-    return { games, error, isLoading };
+    return { games, error, isLoading, needToFetchMore };
 };
