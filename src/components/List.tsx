@@ -1,6 +1,6 @@
 interface Props<T> {
     data: T[],
-    renderItem: (item: T) => JSX.Element,
+    renderItem: (item: T) => JSX.Element | false,
     renderError: () => JSX.Element | '',
     renderLoading: () => JSX.Element[] | JSX.Element | false,
 }

@@ -1,22 +1,26 @@
-// React imports
 import { useEffect } from 'react';
 
 function useOnScrollBottom(onScrollToBottom: () => void) {
 
     useEffect(() => {
-        const handleScrollToBottom = () => {
-            const { scrollY, innerHeight } = window;
-            const fullHeight = document.documentElement.scrollHeight;
+        let timeoutId: number | null = null;
 
-            if (scrollY + innerHeight + 1 >= fullHeight) {
-                onScrollToBottom();
+        const handleScrollToBottom = () => {
+            if (!timeoutId) {
+                timeoutId = setTimeout(() => {
+                    timeoutId = null;
+                    const { scrollY, innerHeight } = window;
+                    const fullHeight = document.documentElement.scrollHeight;
+                    scrollY + innerHeight + 1 >= fullHeight && onScrollToBottom();
+                }, 500);
             }
         };
 
-        window.addEventListener('scroll', handleScrollToBottom);
+        addEventListener('scroll', handleScrollToBottom);
 
         return () => {
-            window.removeEventListener('scroll', handleScrollToBottom); // Cleanup on unmount
+            removeEventListener('scroll', handleScrollToBottom);
+            timeoutId && clearTimeout(timeoutId);
         };
     }, [onScrollToBottom]);
 }
