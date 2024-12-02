@@ -1,13 +1,15 @@
+// React imports
+import { useEffect, useState, useCallback, useMemo } from 'react';
 // Third party libraries imports
 import { useDispatch, useSelector } from 'react-redux';
-// FS imports
+// FS imports (Default imports)
 import useFetchData from '../../../hooks/useFetchData';
 import gamesService from '../services/games-service';
 import useOnScrollBottom from './useOnScrollBottom';
+// FS imports (Named imports)
 import { Game, GamesFetchResponse } from '../types/games';
 import { AppDispatch, RootState } from '../../../store/store';
 import { orderType } from '../../SortSelector/types/types';
-import { useEffect, useState, useCallback, useMemo } from 'react';
 import { PAGE_SIZE } from '../utils/constants';
 import { incrementPage, resetPage } from '../../../store/gamesParams/gamesParamsSlice';
 
@@ -70,5 +72,5 @@ export const useFetchGames = () => {
         needToFetchMore && setIsFetchingMore(true);
     }, [needToFetchMore]);
 
-    return { games, error, isLoading , needToFetchMore };
+    return { games, error, isLoading, needToFetchMore };
 };

@@ -2,14 +2,12 @@
 import { FC, useCallback } from 'react';
 // Third party libraries imports
 import { HStack, SimpleGrid, Spinner } from '@chakra-ui/react';
-// FS imports
-import GameCard from '../../GameCard/components/GameCard';
-import List from '../../../components/List';
-import GameCardSkeleton from '../../GameCard/components/GameCardSkeleton';
-import ErrorMessage from '../../../components/ErrorMessage';
+// FS imports (Named imports)
+import { GameCard, GameCardSkeleton } from '../../GameCard/components';
+import { ErrorMessage, List } from '../../../components';
 import { useFetchGames } from '../hooks';
-import { Game } from '../types/games';
-import { PAGE_SIZE } from '../utils/constants';
+import { Game } from '../types';
+import { PAGE_SIZE } from '../utils';
 
 
 const GamesList: FC = () => {
