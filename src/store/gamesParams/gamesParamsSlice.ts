@@ -7,6 +7,7 @@ interface GamesParams {
     selectedPlatform: number | null;
     selctedOrderOption: orderType | null;
     page: number;
+    search: string,
 
 };
 
@@ -15,6 +16,7 @@ const initialState: GamesParams = {
     selectedPlatform: null,
     selctedOrderOption: null,
     page: 1,
+    search: '',
 };
 
 const gamesParamsSlice = createSlice({
@@ -43,9 +45,13 @@ const gamesParamsSlice = createSlice({
         resetPage: (state) => {
             state.page = 1;
         },
+        // search text reducers
+        updateSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
+        },
     },
 });
 
-export const { selectGenre, selectPlatform, deselectGenre, selectOrderOption, incrementPage, resetPage } = gamesParamsSlice.actions;
+export const { selectGenre, selectPlatform, deselectGenre, selectOrderOption, incrementPage, resetPage, updateSearch } = gamesParamsSlice.actions;
 
 export default gamesParamsSlice.reducer;

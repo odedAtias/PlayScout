@@ -5,11 +5,13 @@ import { Image, HStack } from '@chakra-ui/react'
 // Fs imports
 import { Logo } from '../../../assets/images';
 import { ColorModeSwitcher } from './';
+import SearchInput from './SearchInput';
 
 export const Navbar: FC = () => {
     return (
         <HStack padding={'1rem'}>
             <Image src={Logo} aria-label='Logo image' boxSize={{ base: '50px', lg: '70px', xl: '90px' }} borderRadius={'15px'} />
+            <SearchInput />
             <ColorModeSwitcher />
         </HStack >
     )

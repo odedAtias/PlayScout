@@ -26,13 +26,15 @@ interface Params {
 export const useFetchGames = () => {
     const dispatch = useDispatch<AppDispatch>();
 
-    const { selectedGenre, selectedPlatform, selctedOrderOption, page } = useSelector((state: RootState) => state.gamesParams);
+    const { selectedGenre, selectedPlatform, selctedOrderOption, page, search } = useSelector((state: RootState) => state.gamesParams);
+    
+    console.info('========search',search);
 
     const [isFetchingMore, setIsFetchingMore] = useState<boolean>(false); // Prevent overlapping fetches
     const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
     const [games, setGames] = useState<Game[]>([]);
 
-    const paramsDependencies: ParamDependency[] = useMemo(() => [selectedGenre, selectedPlatform, selctedOrderOption, page], [selectedGenre, selectedPlatform, selctedOrderOption, page,]);
+    const paramsDependencies: ParamDependency[] = useMemo(() => [selectedGenre, selectedPlatform, selctedOrderOption, page, search], [selectedGenre, selectedPlatform, selctedOrderOption, page, search]);
 
     const params: Params = useMemo(() => ({
         genres: selectedGenre,
@@ -40,6 +42,7 @@ export const useFetchGames = () => {
         ordering: selctedOrderOption === 'none' ? null : selctedOrderOption,
         page,
         page_size: PAGE_SIZE,
+        search,
     }), [paramsDependencies]);
 
     const { payload, isLoading, error } = useFetchData<GamesFetchResponse>(gamesService, { params }, paramsDependencies);
@@ -58,7 +61,7 @@ export const useFetchGames = () => {
 
     useEffect(() => {
         page > 1 && dispatch(resetPage());
-    }, [selectedGenre, selectedPlatform, selctedOrderOption]);
+    }, [selectedGenre, selectedPlatform, selctedOrderOption, search]);
 
     useEffect(() => {
         if (payload?.results && payload?.results?.length > 0) {
