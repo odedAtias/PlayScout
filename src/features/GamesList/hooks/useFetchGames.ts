@@ -27,8 +27,6 @@ export const useFetchGames = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const { selectedGenre, selectedPlatform, selctedOrderOption, page, search } = useSelector((state: RootState) => state.gamesParams);
-    
-    console.info('========search',search);
 
     const [isFetchingMore, setIsFetchingMore] = useState<boolean>(false); // Prevent overlapping fetches
     const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
