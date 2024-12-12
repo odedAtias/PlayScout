@@ -3,10 +3,11 @@ import { FC } from 'react'
 // Third party libraries imports
 import { MenuItem } from "@chakra-ui/react"
 import { useDispatch } from 'react-redux'
-// FS imports
+// FS imports (Default imports)
+import GenericMenu from '../../../components/GenericMenu'// FS imports
+// FS imports (Named imports)
 import { useFetchPlatforms } from '../hooks'
 import { Platform } from '../types'
-import GenericMenu from '../../../components/GenericMenu'
 import { AppDispatch } from '../../../store/store'
 import { selectPlatform } from '../../../store/gamesParams/gamesParamsSlice'
 
@@ -32,4 +33,4 @@ const PlatformsFilter: FC = () => {
     )
 }
 
-export default PlatformsFilter
+export default PlatformsFilter;

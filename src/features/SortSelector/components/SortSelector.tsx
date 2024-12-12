@@ -3,8 +3,9 @@ import { FC, useMemo } from 'react'
 // Third party libraries imports
 import { MenuItem } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
-// FS imports
+// FS imports (Default imports)
 import GenericMenu from '../../../components/GenericMenu'
+// FS imports (Named imports)
 import { ORDERING_OPTIONS } from '../utils/constants'
 import { OrderOption, orderType } from '../types/types'
 import { AppDispatch } from '../../../store/store'
@@ -28,7 +29,7 @@ const GamesSortBySelector: FC = () => {
         )
     };
 
-    const title = useMemo(() => !selctedOrderOption ? "None" : capitalizeFirstLetter("" + selctedOrderOption), [selctedOrderOption])
+    const title = useMemo(() => !selctedOrderOption ? "None" : capitalizeFirstLetter(selctedOrderOption as string), [selctedOrderOption])
 
     return (
         <GenericMenu title={`Order By: ${title}`} list={ORDERING_OPTIONS} renderItem={renderItem} />

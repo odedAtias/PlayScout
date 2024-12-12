@@ -13,4 +13,4 @@ const List = <T,>({ data, renderItem, renderError, renderLoading }: Props<T>) =>
     </>
 }
 
-export default List
+export default List;
