@@ -11,10 +11,10 @@ interface Props {
     updateSearch: (debouncedSearchText: string) => void,
 };
 
-const SearchInput: FC<Props> = ({ inputProps = {}, debounceTime = 300, updateSearch }: Props) => {
+const SearchInput: FC<Props> = ({ inputProps = {}, debounceTime, updateSearch }: Props) => {
 
     const [searchText, setSearchText] = useState<string>('');
-    const debouncedSearchText = useDebounce(searchText, debounceTime);
+    const debouncedSearchText = useDebounce<string>(searchText, debounceTime);
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Preventing the default bahviour of the search input

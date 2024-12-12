@@ -2,10 +2,8 @@
 import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
-// FS imports
+// FS imports (Named imports)
 import { Navbar, Main, Aside } from './layout'
-
-
 
 const App: FC = () => {
   return (
@@ -33,4 +31,4 @@ const App: FC = () => {
   )
 }
 
-export default App
+export default App;
