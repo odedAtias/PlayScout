@@ -1,10 +1,11 @@
 // Third parties libraries imports
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { orderType } from "../../features/SortSelector/types/types";
+import { SelectedGenre, SelectedPlatform } from "./types";
 
 interface GamesParams {
-    selectedGenre: number | null;
-    selectedPlatform: number | null;
+    selectedGenre: SelectedGenre | null;
+    selectedPlatform: SelectedPlatform | null;
     selctedOrderOption: orderType | null;
     page: number;
     search: string,
@@ -24,14 +25,14 @@ const gamesParamsSlice = createSlice({
     name: "gamesParams",
     reducers: {
         // selectedGenre reducers
-        selectGenre: (state, action: PayloadAction<number>) => {
+        selectGenre: (state, action: PayloadAction<SelectedGenre>) => {
             state.selectedGenre = action.payload;
         },
         deselectGenre: (state) => {
             state.selectedGenre = null;
         },
         // selectedPlatforms reducers
-        selectPlatform: (state, action: PayloadAction<number>) => {
+        selectPlatform: (state, action: PayloadAction<SelectedPlatform>) => {
             state.selectedPlatform = action.payload;
         },
         // selected order option reducers

@@ -6,13 +6,15 @@ import { HStack } from '@chakra-ui/react';
 import GamesList from '../../../features/GamesList/components/GamesList'
 import PlatformsFilter from '../../../features/PlatformsFilter/components/PlatformsFilter';
 import SortSelector from '../../../features/SortSelector/components/SortSelector';
+import GamesHeading from '../../../features/GamesHeading/components/GamesHeading';
 
 export const Main: FC = () => (
     <>
-        <HStack marginLeft={20} marginBottom={"3%"} marginTop={2} gap={15}>
+        <HStack marginLeft={20} marginBottom={"2%"} marginTop={2} gap={15}>
             <PlatformsFilter />
             <SortSelector />
         </HStack>
+        <GamesHeading />
         <GamesList />
     </>
 );

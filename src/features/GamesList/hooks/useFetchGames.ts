@@ -28,15 +28,18 @@ export const useFetchGames = () => {
 
     const { selectedGenre, selectedPlatform, selctedOrderOption, page, search } = useSelector((state: RootState) => state.gamesParams);
 
+    const selectedGenreId = selectedGenre ? selectedGenre?.id : null;
+    const selectedPlatformId = selectedPlatform? selectedPlatform?.id : null;
+
     const [isFetchingMore, setIsFetchingMore] = useState<boolean>(false); // Prevent overlapping fetches
     const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
     const [games, setGames] = useState<Game[]>([]);
 
-    const paramsDependencies: ParamDependency[] = useMemo(() => [selectedGenre, selectedPlatform, selctedOrderOption, page, search], [selectedGenre, selectedPlatform, selctedOrderOption, page, search]);
+    const paramsDependencies: ParamDependency[] = useMemo(() => [selectedGenreId, selectedPlatformId, selctedOrderOption, page, search], [selectedGenre, selectedPlatformId, selctedOrderOption, page, search]);
 
     const params: Params = useMemo(() => ({
-        genres: selectedGenre,
-        parent_platforms: selectedPlatform,
+        genres: selectedGenreId,
+        parent_platforms: selectedPlatformId,
         ordering: selctedOrderOption === 'none' ? null : selctedOrderOption,
         page,
         page_size: PAGE_SIZE,
@@ -59,7 +62,7 @@ export const useFetchGames = () => {
 
     useEffect(() => {
         page > 1 && dispatch(resetPage());
-    }, [selectedGenre, selectedPlatform, selctedOrderOption, search]);
+    }, [selectedGenreId, selectedPlatformId, selctedOrderOption, search]);
 
     useEffect(() => {
         if (payload?.results && payload?.results?.length > 0) {
