@@ -24,7 +24,7 @@ const GameCard: FC<Props> = (props: Props) => {
                     <Spacer />
                     <CriticScore score={metacritic} />
                 </HStack>
-                <HStack mt={2}>
+                <HStack mt={2} mr={-5}>
                     <PlatformsList platforms={parent_platforms} />
                 </HStack>
             </CardBody>

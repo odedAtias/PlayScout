@@ -3,7 +3,8 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Box, Text } from '@chakra-ui/react'
 import { FaXbox, FaWindows, FaPlaystation, FaApple, FaAndroid, FaLinux, FaAppStoreIos } from "react-icons/fa";
-import { SiNintendo3Ds } from "react-icons/si";
+import { SiNintendo3Ds, SiAtari, SiSega, SiCommodore } from "react-icons/si";
+
 // FS imports
 import { ParentPlatform } from '../../GamesList/types'
 import List from '../../../components/List';
@@ -22,16 +23,44 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
         'mac': <FaApple />,
         'android': <FaAndroid />,
         'linux': <FaLinux />,
-        'ios': <FaAppStoreIos />
+        'ios': <FaAppStoreIos />,
+        'atari': <SiAtari />,
+        'sega': <SiSega />,
+        'commodore-amiga': <SiCommodore />,
     });
 
-    const renderItem = (item: ParentPlatform) =>
-        <Box key={item.platform.id}>
-            {platformsIcons[item.platform.slug] || <Text>{item.platform.slug}</Text>}
-        </Box>
-        ;
+    const howManyPlatformsWithoutIcon: number = platforms.filter((p: ParentPlatform) => !platformsIcons[p.platform.slug]).length;
 
-    return <List data={platforms} renderItem={renderItem} renderError={() => ""} renderLoading={() => false} />
+    const renderItem = (item: ParentPlatform) => (
+        <Box key={item.platform.id}>
+            {platformsIcons[item.platform.slug]}
+        </Box>
+    );
+
+    const renderError = () => "";
+
+    const PlatformsWithoutIcons = () => {
+        if (platforms?.length === 1 && howManyPlatformsWithoutIcon === 1) {
+            return (
+                <Text>
+                    {platforms?.[0]?.platform?.slug}
+                </Text>
+            )
+        }
+        else if (howManyPlatformsWithoutIcon > 0) {
+            return (
+                <Text marginLeft={-2} fontSize={13}>{`+${howManyPlatformsWithoutIcon}`}</Text>
+            )
+        }
+        else return null;
+    };
+
+    return (
+        <>
+            <List data={platforms} renderItem={renderItem} renderError={renderError} renderLoading={() => false} />
+            <PlatformsWithoutIcons />
+        </>
+    )
 }
 
 export default PlatformsList
