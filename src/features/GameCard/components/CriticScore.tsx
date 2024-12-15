@@ -13,7 +13,7 @@ const CriticScore: FC<Props> = ({ score }: Props) => {
 
     const color = useMemo(() => getColorByScore(score), [score]);
 
-    return <Badge variant='solid' colorScheme={color}>{score ?? "No-Score"}</Badge>
+    return <Badge variant='solid' colorScheme={color} fontSize={15}>{score ?? "No-Score"}</Badge>
 }
 
 export default CriticScore

@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react';
 // Third party libraries imports
-import { CardBody, Heading, HStack, Spacer } from '@chakra-ui/react';
+import { Box, CardBody, Heading, HStack, Spacer } from '@chakra-ui/react';
 // FS imports
 import { Game } from '../../GamesList/types';
 import CardImage from './CardImage';
@@ -19,10 +19,12 @@ const GameCard: FC<Props> = (props: Props) => {
         <GameCardContainer>
             <CardImage imageUrl={background_image} imageAlt={`${name} image`} />
             <CardBody h='40%'>
-                <HStack mt={2}>
-                    <Heading fontSize={'2xl'} noOfLines={1}>{name}</Heading>
+                <HStack mt={2} alignItems='flex-start'>
+                    <Heading fontSize={'2xl'} noOfLines={2}>{name}</Heading>
                     <Spacer />
-                    <CriticScore score={metacritic} />
+                    <Box>
+                        <CriticScore score={metacritic} />
+                    </Box>
                 </HStack>
                 <HStack mt={2} mr={-5}>
                     <PlatformsList platforms={parent_platforms} />
