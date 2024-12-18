@@ -3,7 +3,7 @@ import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
 // FS imports (Named imports)
-import { Navbar, Main, Aside } from './layout'
+import { Navbar, Main, Aside, Footer } from './layout'
 
 const App: FC = () => {
   return (
@@ -25,7 +25,7 @@ const App: FC = () => {
       </GridItem>
 
       <GridItem as="footer" colSpan={6}>
-        Footer
+        <Footer />
       </GridItem>
     </Grid>
   )
