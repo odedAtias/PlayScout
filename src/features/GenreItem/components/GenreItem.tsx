@@ -22,7 +22,7 @@ const GenreItem: FC<Props> = ({ name, image_background, onClick, isSelected = fa
     return (
         <GenreItemContainer customStyle={{ backgroundColor }}>
             <GenreImage name={name} image_background={image_background} />
-            <Button textColor={textColor} variant="link" onClick={onClick}>
+            <Button textColor={textColor} variant="link" onClick={onClick} noOfLines={1}>
                 {name}
             </Button>
         </GenreItemContainer>
