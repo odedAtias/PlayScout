@@ -12,7 +12,7 @@ const GamesHeading: FC = () => {
     const title: string = `${selectedPlatform?.name || ''} ${selectedGenre?.name || ''} Games`;
 
     return (
-        <Heading as="h1" size="lg" marginLeft={20} marginBottom={"2%"}>{title}</Heading>
+        <Heading as="h1" size="lg" marginBottom={"2%"}>{title}</Heading>
     )
 }
 
