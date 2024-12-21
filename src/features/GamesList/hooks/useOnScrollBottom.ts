@@ -12,7 +12,7 @@ function useOnScrollBottom(onScrollToBottom: () => void) {
                     const { scrollY, innerHeight } = window;
                     const fullHeight = document.documentElement.scrollHeight;
                     scrollY + innerHeight + 1 >= fullHeight && onScrollToBottom();
-                }, 500);
+                }, 100);
             }
         };
 
