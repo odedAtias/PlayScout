@@ -1,7 +1,7 @@
 // React imports
 import { FC, useCallback } from 'react';
 // Third party libraries imports
-import { HStack, SimpleGrid, Spinner } from '@chakra-ui/react';
+import { Box, HStack, SimpleGrid, Spinner } from '@chakra-ui/react';
 // FS imports (Named imports)
 import { GameCard, GameCardSkeleton } from '../../GameCard/components';
 import { ErrorMessage, List } from '../../../components';
@@ -25,12 +25,12 @@ const GamesList: FC = () => {
     ), []);
 
     return (
-        <>
+        <Box mb={'10%'}>
             <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} placeItems={'center'} gap={{ base: 5, md: 10 }}>
                 <List data={games} renderItem={renderItem} renderError={renderError} renderLoading={renderLoading} />
             </SimpleGrid>
             {needToFetchMore && <FetchMoreSpinner />}
-        </>
+        </Box>
     );
 }
 
