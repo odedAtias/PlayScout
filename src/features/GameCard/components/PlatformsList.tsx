@@ -37,7 +37,8 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
         </Box>
     );
 
-    const renderError = () => "";
+    // @TODO give an error message
+    const renderError = () => <></>;
 
     const PlatformsWithoutIcons = () => {
         if (platforms?.length === 1 && howManyPlatformsWithoutIcon === 1) {
