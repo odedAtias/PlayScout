@@ -2,24 +2,20 @@
 import { FC, useMemo } from 'react'
 // Third party libraries imports
 import { MenuItem } from '@chakra-ui/react'
-import { useDispatch, useSelector } from 'react-redux'
 // FS imports (Default imports)
 import GenericMenu from '../../../components/GenericMenu'
 // FS imports (Named imports)
 import { ORDERING_OPTIONS } from '../utils/constants'
 import { OrderOption, orderType } from '../types/types'
-import { AppDispatch } from '../../../store/store'
-import { selectOrderOption } from '../../../store/gamesParams/gamesParamsSlice'
-import { RootState } from '../../../store/store'
 import { capitalizeFirstLetter } from '../../../utils/strings'
+import useCreateContext from '../../../hooks/useCreateContext'
+import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext'
 
 const GamesSortBySelector: FC = () => {
 
-    const { selctedOrderOption } = useSelector((state: RootState) => state.gamesParams);
+    const { state: { selectedOrderOption }, dispatch } = useCreateContext(GamesParamsContext);
 
-    const dispatch = useDispatch<AppDispatch>();
-
-    const handleClickOrderOption = (name: orderType) => dispatch(selectOrderOption(name));
+    const handleClickOrderOption = (name: orderType) => dispatch({type: 'SELECT_ORDER_OPTION' , payload : name});
 
     const renderItem = ({ id, name, label }: OrderOption) => {
         return (
@@ -29,7 +25,7 @@ const GamesSortBySelector: FC = () => {
         )
     };
 
-    const title = useMemo(() => !selctedOrderOption ? "None" : capitalizeFirstLetter(selctedOrderOption as string), [selctedOrderOption])
+    const title = useMemo(() => !selectedOrderOption ? "None" : capitalizeFirstLetter(selectedOrderOption as string), [selectedOrderOption])
 
     return (
         <GenericMenu title={`Order By: ${title}`} list={ORDERING_OPTIONS} renderItem={renderItem} />

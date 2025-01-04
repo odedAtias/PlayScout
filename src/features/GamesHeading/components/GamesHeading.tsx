@@ -2,12 +2,13 @@
 import { FC } from 'react'
 // Third party libraries imports
 import { Heading } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
 // FS imports (Named imports)
-import { RootState } from '../../../store/store'
+import useCreateContext from '../../../hooks/useCreateContext'
+import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext'
 
 const GamesHeading: FC = () => {
-    const { selectedPlatform, selectedGenre } = useSelector((state: RootState) => state.gamesParams);
+
+    const {state: {selectedPlatform, selectedGenre}} = useCreateContext(GamesParamsContext);
 
     const title: string = `${selectedPlatform?.name || ''} ${selectedGenre?.name || ''} Games`;
 
