@@ -11,7 +11,7 @@ interface GamesParamsContextProviderProps {
 
 export const GamesParamsContextProvider: FC<GamesParamsContextProviderProps> = ({ children }: GamesParamsContextProviderProps) => {
     
-    const [state, dispatch] = useReducer<Reducer<GamesParamsState, GamesParamsAction>>(gamesParamsReducer, initialState):
+    const [state, dispatch] = useReducer<Reducer<GamesParamsState, GamesParamsAction>>(gamesParamsReducer, initialState);
 
     return (
         <GamesParamsContext.Provider value={{ state, dispatch }}>

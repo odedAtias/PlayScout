@@ -2,7 +2,6 @@
 import { FC } from 'react'
 // Third party libraries imports
 import { Container } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
 // FS imports (Default imports)
 import List from '../../../components/List';
 import GenreItem from '../../GenreItem/components/GenreItem';
@@ -10,20 +9,19 @@ import GenreItemSkeleton from '../../GenreItem/components/GenreItemSkeleton';
 // FS imports (Named imports)
 import { Genre } from '../types';
 import { useFetchGenres } from '../hooks'
-import { AppDispatch, RootState } from '../../../store/store';
-import { deselectGenre, selectGenre } from '../../../store/gamesParams/gamesParamsSlice';
 import { SelectedGenre } from '../../../store/gamesParams/types';
+import useCreateContext from '../../../hooks/useCreateContext';
+import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext';
 
 
 const GenresList: FC = () => {
     const { genres, error, isLoading } = useFetchGenres();
-    const { selectedGenre } = useSelector((state: RootState) => state.gamesParams);
 
-    const dispatch = useDispatch<AppDispatch>();
+    const { state: selectedGenre, dispatch } = useCreateContext(GamesParamsContext);
 
     const handleClickGenre = (id: number, name: string) => {
         const newSelectedGenre: SelectedGenre = { id, name };
-        dispatch(selectedGenre?.id === newSelectedGenre?.id ? deselectGenre() : selectGenre(newSelectedGenre));
+        dispatch(selectedGenre?.id === newSelectedGenre?.id ? {type: 'DESELECT_GENRE' } : {type: 'SELECT_GENRE', payload: newSelectedGenre});
     };
 
     const renderItem = (genre: Genre) => {

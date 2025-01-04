@@ -8,4 +8,4 @@ interface ContextProps {
     dispatch: Dispatch<GamesParamsAction>;
 };
 
-export const GamesParamsContext = createContext<ContextProps | null>(null);
+export const GamesParamsContext = createContext<ContextProps | undefined>(undefined);

@@ -2,24 +2,23 @@
 import { FC } from 'react'
 // Third party libraries imports
 import { MenuItem } from "@chakra-ui/react"
-import { useDispatch } from 'react-redux'
 // FS imports (Default imports)
 import GenericMenu from '../../../components/GenericMenu'
 // FS imports (Named imports)
 import { useFetchPlatforms } from '../hooks'
 import { Platform } from '../types'
-import { AppDispatch } from '../../../store/store'
-import { selectPlatform } from '../../../store/gamesParams/gamesParamsSlice'
 import { SelectedPlatform } from '../../../store/gamesParams/types'
+import useCreateContext from '../../../hooks/useCreateContext'
+import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext'
 
 const PlatformsFilter: FC = () => {
-    const dispatch = useDispatch<AppDispatch>();
+    const { dispatch } = useCreateContext(GamesParamsContext);
 
     const { platforms } = useFetchPlatforms();
 
     const handleClickPlatform = (id: number, name: string) => {
         const newSelectedPlatform: SelectedPlatform = { id, name };
-        dispatch(selectPlatform(newSelectedPlatform));
+        dispatch({ type: 'SELECT_PLATFORM', payload: newSelectedPlatform });
     };
 
     const renderItem = ({ id, name }: Platform) => {

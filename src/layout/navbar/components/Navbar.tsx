@@ -2,27 +2,26 @@
 import { FC } from 'react'
 // Third party libraries imports
 import { Image, HStack, InputProps, useColorModeValue } from '@chakra-ui/react'
-import { useDispatch } from 'react-redux';
 // FS imports (Default imports)
 import SearchInput from './SearchInput';
 // FS imports (Named imports)
 import { Logo } from '../../../assets/images';
 import { ColorModeSwitcher } from './';
-import { AppDispatch } from '../../../store/store';
-import { updateSearch } from '../../../store/gamesParams/gamesParamsSlice';
+import useCreateContext from '../../../hooks/useCreateContext';
+import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext';
 
 export const Navbar: FC = () => {
-    const dispatch = useDispatch<AppDispatch>();
+    const { dispatch } = useCreateContext(GamesParamsContext);
 
     const handleUpdateSearch = (debouncedSearchText: string) => {
-        dispatch(updateSearch(debouncedSearchText))
+        dispatch({ type: 'UPDATE_SEARCH', payload: debouncedSearchText });
     };
 
     const borderColor = useColorModeValue('gray.400', 'gray.600');
 
     const inputProps: InputProps = Object.freeze({
         placeholder: 'Find your favorite games...',
-        borderRadius : 15,
+        borderRadius: 15,
         margin: 2,
         borderColor,
     });

@@ -1,17 +1,16 @@
 // React imports
 import { useEffect, useState, useCallback, useMemo } from 'react';
-// Third party libraries imports
-import { useDispatch, useSelector } from 'react-redux';
 // FS imports (Default imports)
 import useFetchData from '../../../hooks/useFetchData';
 import gamesService from '../services/games-service';
 import useOnScrollBottom from './useOnScrollBottom';
 // FS imports (Named imports)
 import { Game, GamesFetchResponse } from '../types/games';
-import { AppDispatch, RootState } from '../../../store/store';
 import { orderType } from '../../SortSelector/types/types';
 import { PAGE_SIZE } from '../utils/constants';
 import { incrementPage, resetPage } from '../../../store/gamesParams/gamesParamsSlice';
+import useCreateContext from '../../../hooks/useCreateContext';
+import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext';
 
 type ParamDependency = string | number | orderType | null;
 
@@ -24,23 +23,23 @@ interface Params {
 }
 
 export const useFetchGames = () => {
-    const dispatch = useDispatch<AppDispatch>();
+    const { state, dispatch } = useCreateContext(GamesParamsContext);
 
-    const { selectedGenre, selectedPlatform, selctedOrderOption, page, search } = useSelector((state: RootState) => state.gamesParams);
+    const { selectedGenre, selectedPlatform, selectedOrderOption, page, search } = state;
 
     const selectedGenreId = selectedGenre ? selectedGenre?.id : null;
-    const selectedPlatformId = selectedPlatform? selectedPlatform?.id : null;
+    const selectedPlatformId = selectedPlatform ? selectedPlatform?.id : null;
 
     const [isFetchingMore, setIsFetchingMore] = useState<boolean>(false); // Prevent overlapping fetches
     const [needToFetchMore, setNeedToFetchMore] = useState<boolean>(false);
     const [games, setGames] = useState<Game[]>([]);
 
-    const paramsDependencies: ParamDependency[] = useMemo(() => [selectedGenreId, selectedPlatformId, selctedOrderOption, page, search], [selectedGenre, selectedPlatformId, selctedOrderOption, page, search]);
+    const paramsDependencies: ParamDependency[] = useMemo(() => [selectedGenreId, selectedPlatformId, selectedOrderOption, page, search], [selectedGenre, selectedPlatformId, selectedOrderOption, page, search]);
 
     const params: Params = useMemo(() => ({
         genres: selectedGenreId,
         parent_platforms: selectedPlatformId,
-        ordering: selctedOrderOption === 'none' ? null : selctedOrderOption,
+        ordering: selectedOrderOption === 'none' ? null : selectedOrderOption,
         page,
         page_size: PAGE_SIZE,
         search,
@@ -52,7 +51,7 @@ export const useFetchGames = () => {
         // Enable fetching more games only after the previous fetch has finished
         if (!needToFetchMore && !isFetchingMore) {
             if (!isFetchingMore && !isLoading) {
-                dispatch(incrementPage());
+                dispatch({ type: 'INCREMENT_PAGE' });
                 setNeedToFetchMore(true);
             }
         }
@@ -61,8 +60,8 @@ export const useFetchGames = () => {
     useOnScrollBottom(fetchMoreGames);
 
     useEffect(() => {
-        page > 1 && dispatch(resetPage());
-    }, [selectedGenreId, selectedPlatformId, selctedOrderOption, search]);
+        page > 1 && dispatch({ type: 'RESET_PAGE' });
+    }, [selectedGenreId, selectedPlatformId, selectedOrderOption, search]);
 
     useEffect(() => {
         if (payload?.results && payload?.results?.length > 0) {
