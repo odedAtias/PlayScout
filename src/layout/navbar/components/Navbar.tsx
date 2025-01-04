@@ -8,10 +8,10 @@ import SearchInput from './SearchInput';
 import { Logo } from '../../../assets/images';
 import { ColorModeSwitcher } from './';
 import useCreateContext from '../../../hooks/useCreateContext';
-import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext';
+import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
 
 export const Navbar: FC = () => {
-    const { dispatch } = useCreateContext(GamesParamsContext);
+    const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const handleUpdateSearch = (debouncedSearchText: string) => {
         dispatch({ type: 'UPDATE_SEARCH', payload: debouncedSearchText });

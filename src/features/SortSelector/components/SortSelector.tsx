@@ -9,11 +9,11 @@ import { ORDERING_OPTIONS } from '../utils/constants'
 import { OrderOption, orderType } from '../types/types'
 import { capitalizeFirstLetter } from '../../../utils/strings'
 import useCreateContext from '../../../hooks/useCreateContext'
-import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext'
+import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
 
 const GamesSortBySelector: FC = () => {
 
-    const { state: { selectedOrderOption }, dispatch } = useCreateContext(GamesParamsContext);
+    const { state: { selectedOrderOption }, dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const handleClickOrderOption = (name: orderType) => dispatch({type: 'SELECT_ORDER_OPTION' , payload : name});
 

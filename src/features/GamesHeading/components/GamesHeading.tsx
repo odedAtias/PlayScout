@@ -4,11 +4,11 @@ import { FC } from 'react'
 import { Heading } from '@chakra-ui/react'
 // FS imports (Named imports)
 import useCreateContext from '../../../hooks/useCreateContext'
-import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext'
+import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
 
 const GamesHeading: FC = () => {
 
-    const {state: {selectedPlatform, selectedGenre}} = useCreateContext(GamesParamsContext);
+    const {state: {selectedPlatform, selectedGenre}} = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const title: string = `${selectedPlatform?.name || ''} ${selectedGenre?.name || ''} Games`;
 

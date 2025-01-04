@@ -7,12 +7,12 @@ import GenericMenu from '../../../components/GenericMenu'
 // FS imports (Named imports)
 import { useFetchPlatforms } from '../hooks'
 import { Platform } from '../types'
-import { SelectedPlatform } from '../../../store/gamesParams/types'
 import useCreateContext from '../../../hooks/useCreateContext'
-import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext'
+import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
+import { SelectedPlatform } from '../../../context/gamesParams/types'
 
 const PlatformsFilter: FC = () => {
-    const { dispatch } = useCreateContext(GamesParamsContext);
+    const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const { platforms } = useFetchPlatforms();
 

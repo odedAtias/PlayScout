@@ -8,9 +8,8 @@ import useOnScrollBottom from './useOnScrollBottom';
 import { Game, GamesFetchResponse } from '../types/games';
 import { orderType } from '../../SortSelector/types/types';
 import { PAGE_SIZE } from '../utils/constants';
-import { incrementPage, resetPage } from '../../../store/gamesParams/gamesParamsSlice';
 import useCreateContext from '../../../hooks/useCreateContext';
-import { GamesParamsContext } from '../../../context/gamesParams/GamesParamsContext';
+import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
 
 type ParamDependency = string | number | orderType | null;
 
@@ -23,7 +22,7 @@ interface Params {
 }
 
 export const useFetchGames = () => {
-    const { state, dispatch } = useCreateContext(GamesParamsContext);
+    const { state, dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const { selectedGenre, selectedPlatform, selectedOrderOption, page, search } = state;
 

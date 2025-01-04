@@ -3,9 +3,9 @@ import { createContext, Dispatch } from "react";
 // Other fs imports
 import { GamesParamsState, GamesParamsAction } from "./types";
 
-interface ContextProps {
+export interface GamesParamsContextProps {
     state: GamesParamsState;
     dispatch: Dispatch<GamesParamsAction>;
 };
 
-export const GamesParamsContext = createContext<ContextProps | undefined>(undefined);
+export const GamesParamsContext = createContext<GamesParamsContextProps | undefined>(undefined);
