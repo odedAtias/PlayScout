@@ -33,7 +33,7 @@ PlayScout is a personalized game recommendation platform designed to help users 
 
 ```bash
 # Clone the repository
-~$: git clone https://github.com/your-username/playscout.git
+~$: git clone https://github.com/odedAtias/playscout.git
 
 # Navigate to the project directory
 ~$: cd playscout
