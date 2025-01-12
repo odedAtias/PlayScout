@@ -1,7 +1,7 @@
 interface Props<T> {
     data: T[],
     renderItem: (item: T) => JSX.Element | false,
-    renderError: () => JSX.Element | '',
+    renderError: () => JSX.Element | null,
     renderLoading: () => JSX.Element[] | JSX.Element | false,
 }
 

@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react';
 // Third party libraries imports
-import { Container } from '@chakra-ui/react';
+import { Container, Text } from '@chakra-ui/react';
 // FS imports (Default imports)
 import List from '../../../components/List';
 import GenreItem from '../../GenreItem/components/GenreItem';
@@ -15,6 +15,7 @@ import { Genre } from '../types';
 
 
 const GenresList: FC = () => {
+    
     const { genres, error, isLoading } = useFetchGenres();
 
     const { state: { selectedGenre }, dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
@@ -31,7 +32,7 @@ const GenresList: FC = () => {
     const renderLoading = () => isLoading && Array.from({ length: 15 }, (_, index) => <GenreItemSkeleton key={index} />);
 
     const renderError = () => {
-        return error && <></>;
+        return error && <Text>{error.message}</Text>;
     };
 
     return (

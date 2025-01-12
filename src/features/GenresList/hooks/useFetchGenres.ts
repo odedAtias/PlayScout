@@ -1,10 +1,11 @@
+// Third party libraries imports
+import { useQuery } from '@tanstack/react-query';
 // FS imports
-import useFetchData from '../../../hooks/useFetchData';
-import genreService from '../services/genres-service';
+import genresService from '../services/genres-service';
 import { GenresFetchResponse } from '../types';
 
+
 export const useFetchGenres = () => {
-    const { payload, isLoading, error } = useFetchData<GenresFetchResponse>(genreService);
-    const genres = payload?.results || [];
-    return { genres, error, isLoading };
+    const { data, isLoading, error } = useQuery<GenresFetchResponse>({ queryKey: ['genres'], queryFn: genresService.getAll<GenresFetchResponse> });
+    return { genres: data?.results || [], isLoading, error };
 };
