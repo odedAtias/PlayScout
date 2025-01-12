@@ -6,7 +6,9 @@ interface Props<T> {
 }
 
 const List = <T,>({ data, renderItem, renderError, renderLoading }: Props<T>) => {
-    return <>
+
+
+return <>
         {renderLoading && renderLoading()}
         {renderError && renderError()}
         {data?.length > 0 && data?.map((item: T) => renderItem(item))}

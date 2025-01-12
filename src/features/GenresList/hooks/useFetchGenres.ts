@@ -13,8 +13,6 @@ export const useFetchGenres = () => {
         queryFn: genresService.getAll,
     });
 
-    console.info('========queryOptions',queryOptions);
-
     const { data, isLoading, error } = useQuery<GenresFetchResponse>(queryOptions);
 
     return { genres: data?.results || [], isLoading, error };

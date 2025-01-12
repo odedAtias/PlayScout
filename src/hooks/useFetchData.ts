@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 // FS imports
 import { getRequestError } from '../utils/errors';
-import { HttpService } from '../services/http-service'
+import { HttpService } from '../services/http-service1'
 import { AxiosRequestConfig } from 'axios';
 
 

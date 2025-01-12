@@ -28,7 +28,6 @@ const GenresList: FC = () => {
     const renderItem = (genre: Genre) => {
         return <GenreItem key={genre?.id} name={genre?.name} image_background={genre.image_background} onClick={() => handleClickGenre(genre?.id, genre?.name)} isSelected={genre?.id === selectedGenre?.id} />;
     };
-
     const renderLoading = () => isLoading && Array.from({ length: 15 }, (_, index) => <GenreItemSkeleton key={index} />);
 
     const renderError = () => {
