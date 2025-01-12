@@ -37,9 +37,6 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
         </Box>
     );
 
-    // @TODO give an error message
-    const renderError = () => <></>;
-
     const PlatformsWithoutIcons = () => {
         if (platforms?.length === 1 && howManyPlatformsWithoutIcon === 1) {
             return (
@@ -58,7 +55,7 @@ const PlatformsList: FC<Props> = ({ platforms }: Props) => {
 
     return (
         <>
-            <List data={platforms} renderItem={renderItem} renderError={renderError} renderLoading={() => false} />
+            <List data={platforms} renderItem={renderItem} />
             <PlatformsWithoutIcons />
         </>
     )
