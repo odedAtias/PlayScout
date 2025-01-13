@@ -17,7 +17,7 @@ interface Params {
     search: string;
 }
 
-export const useFetchGames1 = () => {
+export const useFetchGames = () => {
 
     const { state: { search, selectedGenre, selectedOrderOption, selectedPlatform } } = useCreateContext(GamesParamsContext);
 
