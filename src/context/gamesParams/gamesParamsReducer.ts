@@ -5,7 +5,6 @@ export const initialState: GamesParamsState = {
     selectedGenre: null,
     selectedPlatform: null,
     selectedOrderOption: null,
-    page: 1,
     search: "",
 };
 
@@ -19,10 +18,6 @@ export const gamesParamsReducer = (state: GamesParamsState, action: GamesParamsA
             return { ...state, selectedPlatform: action.payload };
         case "SELECT_ORDER_OPTION":
             return { ...state, selectedOrderOption: action.payload };
-        case "INCREMENT_PAGE":
-            return { ...state, page: state.page + 1 };
-        case "RESET_PAGE":
-            return { ...state, page: 1 };
         case "UPDATE_SEARCH":
             return { ...state, search: action.payload };
         default:
