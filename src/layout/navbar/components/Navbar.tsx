@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { Image, HStack, InputProps, useColorModeValue } from '@chakra-ui/react'
 // FS imports 
 import SearchInput from './SearchInput';
-import useCreateContext from '../../../hooks/useCreateContext';
+import { useCreateContext } from '../../../hooks';
 import { Logo } from '../../../assets/images';
 import { ColorModeSwitcher } from './';
 import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';

@@ -4,7 +4,6 @@ import { FC } from 'react'
 import { Box, Text } from '@chakra-ui/react'
 import { FaXbox, FaWindows, FaPlaystation, FaApple, FaAndroid, FaLinux, FaAppStoreIos } from "react-icons/fa";
 import { SiNintendo3Ds, SiAtari, SiSega, SiCommodore } from "react-icons/si";
-
 // FS imports
 import { ParentPlatform } from '../../Games/types'
 import List from '../../../components/List';

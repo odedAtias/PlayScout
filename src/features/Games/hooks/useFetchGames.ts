@@ -1,13 +1,14 @@
 // Third-party libraries imports
 import { useInfiniteQuery } from "@tanstack/react-query";
 // FS imports
+import gamesService from "../services/games-service";
 import { FetchResponse } from "../../../types/global";
 import { Game } from "../types";
-import gamesService from "../services/games-service";
 import { CACHE_KEY_GAMES, PAGE_SIZE } from "../utils";
-import useCreateContext from "../../../hooks/useCreateContext";
+import { useCreateContext } from "../../../hooks/useCreateContext";
 import { GamesParamsContext } from "../../../context/gamesParams/GamesParamsContext";
 import { orderType } from "../../SortSelector/types/order";
+import { omitFalsyValues } from "../../../utils";
 
 interface Params {
     genres: number | null;
@@ -19,14 +20,11 @@ interface Params {
 
 export const useFetchGames = () => {
 
-    const { state: { search, selectedGenre, selectedOrderOption, selectedPlatform } } = useCreateContext(GamesParamsContext);
+    const { state } = useCreateContext(GamesParamsContext);
+    const { search, selectedGenre, selectedOrderOption, selectedPlatform } = state;
 
     const selectedGenreId = selectedGenre ? selectedGenre?.id : null;
     const selectedPlatformId = selectedPlatform ? selectedPlatform?.id : null;
-
-    const getNextPageParam = (lastPage: FetchResponse<Game>, allPages: FetchResponse<Game>[]) => {
-        return lastPage?.results?.length > 0 ? allPages?.length + 1 : undefined;
-    };
 
     const params: Params = {
         genres: selectedGenreId,
@@ -36,16 +34,16 @@ export const useFetchGames = () => {
         search,
     };
 
+    const filteredParamsObject = omitFalsyValues<Params>(params)
+
+    const getNextPageParam = (lastPage: FetchResponse<Game>, allPages: FetchResponse<Game>[]) => {
+        return lastPage?.next ? allPages?.length + 1 : undefined;
+    };
+
     return useInfiniteQuery<FetchResponse<Game>>({
         queryKey: [
             CACHE_KEY_GAMES,
-            {
-                genres: selectedGenreId,
-                parent_platforms: selectedPlatformId,
-                ordering: selectedOrderOption === 'none' ? null : selectedOrderOption,
-                page_size: PAGE_SIZE,
-                search,
-            },
+            { filteredParamsObject },
         ],
         queryFn: ({ pageParam = 1 }) =>
             gamesService.getAll({ params: { ...params, page: pageParam } }),
