@@ -1,10 +1,10 @@
 // React imports
-import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
-import { List } from '../../../components';
-import { SelectedGenre } from '../../../context/gamesParams/types';
 import useCreateContext from '../../../hooks/useCreateContext';
 import GenreItem from '../../GenreItem/components/GenreItem';
 import GenreItemSkeleton from '../../GenreItem/components/GenreItemSkeleton';
+import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
+import { List } from '../../../components';
+import { SelectedGenre } from '../../../context/gamesParams/types';
 import { Genre } from '../types';
 import { FC } from 'react';
 

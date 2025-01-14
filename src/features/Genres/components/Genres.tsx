@@ -3,8 +3,8 @@ import { FC } from 'react';
 // Third party libraries imports
 import { Container, Text } from '@chakra-ui/react';
 // FS imports
-import { useFetchGenres } from '../hooks';
 import GenresList from './GenresList';
+import { useFetchGenres } from '../hooks';
 
 
 const Genres: FC = () => {
