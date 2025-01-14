@@ -6,7 +6,7 @@ import { FaXbox, FaWindows, FaPlaystation, FaApple, FaAndroid, FaLinux, FaAppSto
 import { SiNintendo3Ds, SiAtari, SiSega, SiCommodore } from "react-icons/si";
 
 // FS imports
-import { ParentPlatform } from '../../GamesList/types'
+import { ParentPlatform } from '../../Games/types'
 import List from '../../../components/List';
 
 interface Props {

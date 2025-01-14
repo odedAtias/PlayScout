@@ -1,6 +1,6 @@
 // React imports
 import { FC } from 'react'
 // FS imports (Default imports)
-import GenresList from '../../../features/GenresList/components/GenresList'
+import Genres from '../../../features/Genres/components/Genres'
 
-export const Aside: FC = () => <GenresList />;
+export const Aside: FC = () => <Genres />;

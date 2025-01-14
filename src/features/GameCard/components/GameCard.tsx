@@ -3,7 +3,7 @@ import { FC } from 'react';
 // Third party libraries imports
 import { Box, CardBody, Heading, HStack, Spacer } from '@chakra-ui/react';
 // FS imports
-import { Game } from '../../GamesList/types';
+import { Game } from '../../Games/types';
 import CardImage from './CardImage';
 import CriticScore from './CriticScore';
 import GameCardContainer from './GameCardContainer';

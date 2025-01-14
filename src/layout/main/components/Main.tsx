@@ -3,7 +3,7 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Box, HStack } from '@chakra-ui/react';
 // FS imports (Default imports)
-import GamesList from '../../../features/GamesList/components/GamesList'
+import GamesList from '../../../features/Games/components/Games'
 import PlatformsFilter from '../../../features/PlatformsFilter/components/PlatformsFilter';
 import SortSelector from '../../../features/SortSelector/components/SortSelector';
 import GamesHeading from '../../../features/GamesHeading/components/GamesHeading';
