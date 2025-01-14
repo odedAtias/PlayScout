@@ -1,6 +1,6 @@
 // React imports
 import { createContext, Dispatch } from "react";
-// Other fs imports
+// FS imports
 import { GamesParamsState, GamesParamsAction } from "./types";
 
 export interface GamesParamsContextProps {

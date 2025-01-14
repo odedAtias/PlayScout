@@ -2,12 +2,11 @@
 import { FC } from 'react'
 // Third party libraries imports
 import { Box, MenuItem, Skeleton, Text } from "@chakra-ui/react"
-// FS imports (Default imports)
+// FS imports
 import GenericMenu from '../../../components/GenericMenu'
-// FS imports (Named imports)
+import useCreateContext from '../../../hooks/useCreateContext'
 import { useFetchPlatforms } from '../hooks'
 import { Platform } from '../types'
-import useCreateContext from '../../../hooks/useCreateContext'
 import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
 import { SelectedPlatform } from '../../../context/gamesParams/types'
 

@@ -1,6 +1,6 @@
 // React imports
 import { FC } from 'react'
-// Other FS imports
+// FS imports
 import { ErrorMessage } from '../../../components'
 
 interface Props {

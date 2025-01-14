@@ -1,10 +1,3 @@
-export interface GenresFetchResponse {
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results: Genre[];
-};
-
 export interface Genre {
     games: Game[];
     games_count: number;

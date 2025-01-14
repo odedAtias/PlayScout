@@ -6,7 +6,6 @@ import { Container, Text } from '@chakra-ui/react';
 import GenresList from './GenresList';
 import { useFetchGenres } from '../hooks';
 
-
 const Genres: FC = () => {
 
     const { genres, error, isLoading } = useFetchGenres();

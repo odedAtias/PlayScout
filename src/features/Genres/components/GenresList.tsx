@@ -8,19 +8,16 @@ import { SelectedGenre } from '../../../context/gamesParams/types';
 import { Genre } from '../types';
 import { FC } from 'react';
 
-
 interface Props {
     genres: Genre[];
     isLoading: boolean;
 };
-
 
 const GenresList: FC<Props> = (props: Props) => {
 
     const { genres, isLoading } = props;
 
     const { state: { selectedGenre }, dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
-
 
     const renderItem = (genre: Genre) => {
         return <GenreItem key={genre?.id} name={genre?.name} image_background={genre.image_background} onClick={() => handleClickGenre(genre?.id, genre?.name)} isSelected={genre?.id === selectedGenre?.id} />;

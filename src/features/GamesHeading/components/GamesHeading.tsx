@@ -2,7 +2,7 @@
 import { FC } from 'react'
 // Third party libraries imports
 import { Heading } from '@chakra-ui/react'
-// FS imports (Named imports)
+// FS imports
 import useCreateContext from '../../../hooks/useCreateContext'
 import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
 

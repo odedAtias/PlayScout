@@ -2,9 +2,9 @@
 import { useQuery } from '@tanstack/react-query';
 // FS imports
 import genresService from '../services/genres-service';
-import { GenresFetchResponse } from '../types';
 import { REACT_QUERY_KEY_GENRES } from '../constants';
-
+import { FetchResponse } from '../../../types/global';
+import { Genre } from '../types';
 
 export const useFetchGenres = () => {
 
@@ -13,7 +13,7 @@ export const useFetchGenres = () => {
         queryFn: genresService.getAll,
     });
 
-    const { data, isLoading, error } = useQuery<GenresFetchResponse>(queryOptions);
+    const { data, isLoading, error } = useQuery<FetchResponse<Genre>>(queryOptions);
 
     return { genres: data?.results || [], isLoading, error };
 };

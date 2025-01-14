@@ -1,19 +1,3 @@
-export interface GamesFetchResponse {
-    count: number;
-    description: string;
-    filters: Filters;
-    next: string | null;
-    nofollow: boolean;
-    nofollow_collections: string[];
-    noindex: boolean;
-    previous: string | null;
-    results: Game[];
-    seo_description: string;
-    seo_h1: string;
-    seo_keywords: string;
-    seo_title: string;
-}
-
 export interface Game {
     id: number;
     slug: string;
