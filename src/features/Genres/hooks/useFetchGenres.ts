@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 // FS imports
 import genresService from '../services/genres-service';
-import { REACT_QUERY_KEY_GENRES } from '../constants';
+import { REACT_QUERY_KEY_GENRES } from '../utils';
 import { FetchResponse } from '../../../types/global';
 import { Genre } from '../types';
 

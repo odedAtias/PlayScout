@@ -7,7 +7,7 @@ import gamesService from "../services/games-service";
 import { CACHE_KEY_GAMES, PAGE_SIZE } from "../utils";
 import useCreateContext from "../../../hooks/useCreateContext";
 import { GamesParamsContext } from "../../../context/gamesParams/GamesParamsContext";
-import { orderType } from "../../SortSelector/types/types";
+import { orderType } from "../../SortSelector/types/order";
 
 interface Params {
     genres: number | null;

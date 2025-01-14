@@ -1,5 +1,5 @@
 // FS imports
-import { OrderOption } from "../types/types";
+import { OrderOption } from "../types/order";
 
 export const ORDERING_OPTIONS: OrderOption[] = [
     { id: 0, name: "none", label: "None" },

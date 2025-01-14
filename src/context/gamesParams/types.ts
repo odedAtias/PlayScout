@@ -1,5 +1,5 @@
 // FS imports
-import { orderType } from "../../features/SortSelector/types/types";
+import { orderType } from "../../features/SortSelector/types/order";
 
 export interface SelectedGenre {
     id: number;

@@ -6,7 +6,7 @@ import { MenuItem } from '@chakra-ui/react'
 import GenericMenu from '../../../components/GenericMenu'
 import useCreateContext from '../../../hooks/useCreateContext'
 import { ORDERING_OPTIONS } from '../utils/constants'
-import { OrderOption, orderType } from '../types/types'
+import { OrderOption, orderType } from '../types/order'
 import { capitalizeFirstLetter } from '../../../utils/strings'
 import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
 
