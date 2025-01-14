@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react'
 // Third party libraries imports
-import { MenuItem } from "@chakra-ui/react"
+import { Box, MenuItem, Skeleton, Text } from "@chakra-ui/react"
 // FS imports (Default imports)
 import GenericMenu from '../../../components/GenericMenu'
 // FS imports (Named imports)
@@ -14,7 +14,7 @@ import { SelectedPlatform } from '../../../context/gamesParams/types'
 const PlatformsFilter: FC = () => {
     const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
-    const { platforms } = useFetchPlatforms();
+    const { platforms, isLoading, error } = useFetchPlatforms();
 
     const handleClickPlatform = (id: number, name: string) => {
         const newSelectedPlatform: SelectedPlatform = { id, name };
@@ -29,8 +29,18 @@ const PlatformsFilter: FC = () => {
         )
     };
 
+    if (isLoading) {
+        return <Skeleton height='2.5rem' minWidth={'8rem'} borderRadius={'0.375rem'} />;
+    }
+
+    else if (error) {
+        return <Box>
+            <Text>Can't fetch the platforms filters</Text>
+        </Box>
+    }
+
     return (
-        <GenericMenu title='Platforms' list={platforms} renderItem={renderItem} />
+        platforms?.length > 0 && <GenericMenu title='Platforms' list={platforms} renderItem={renderItem} />
     )
 }
 
