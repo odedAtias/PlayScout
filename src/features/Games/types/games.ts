@@ -27,27 +27,6 @@ export interface Game {
     clip: null | any;
     tags: Tag[];
 }
-
-interface YearData {
-    year: number;
-    count: number;
-    nofollow: boolean;
-}
-
-interface DecadeData {
-    from: number;
-    to: number;
-    filter: string;
-    decade: number;
-    years: YearData[];
-    nofollow: boolean;
-    count: number;
-}
-
-interface Filters {
-    years: DecadeData[];
-}
-
 interface Rating {
     id: number;
     title: string;
