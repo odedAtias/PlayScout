@@ -3,7 +3,7 @@ import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
 // FS imports
-import { Navbar, Main, Aside, Footer } from './layout'
+import { Navbar, Main, Aside, Footer } from 'src/layout';
 
 const App: FC = () => {
   return (
