@@ -4,12 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 // FS imports
 import platformsService from "../services/platforms-service";
 import { PlatfromsFetchResponse } from "../types";
-import { REACT_QUERY_KEY_PLATFORMS } from "../constants";
+import { PLATFORMS_CACHE_KEY } from "../constants";
 
 export const useFetchPlatforms = () => {
 
     const queryOptions = Object.freeze({
-        queryKey: REACT_QUERY_KEY_PLATFORMS,
+        queryKey: PLATFORMS_CACHE_KEY,
         queryFn: platformsService.getAll,
     });
 

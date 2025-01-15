@@ -3,20 +3,11 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 // FS imports
 import gamesService from "../services/games-service";
 import { FetchResponse } from "../../../types/global";
-import { Game } from "../types";
-import { CACHE_KEY_GAMES, PAGE_SIZE } from "../utils";
+import { Game, Params } from "../types";
+import { GAMES_CACHE_KEY, PAGE_SIZE } from "../utils";
 import { useCreateContext } from "../../../hooks/useCreateContext";
 import { GamesParamsContext } from "../../../context/gamesParams/GamesParamsContext";
-import { orderType } from "../../SortSelector/types/order";
 import { omitFalsyValues } from "../../../utils";
-
-interface Params {
-    genres: number | null;
-    parent_platforms: number | null;
-    ordering: orderType | null;
-    page_size: number;
-    search: string;
-}
 
 export const useFetchGames = () => {
 
@@ -42,7 +33,7 @@ export const useFetchGames = () => {
 
     return useInfiniteQuery<FetchResponse<Game>>({
         queryKey: [
-            CACHE_KEY_GAMES,
+            GAMES_CACHE_KEY,
             { filteredParamsObject },
         ],
         queryFn: ({ pageParam = 1 }) =>

@@ -1,1 +1,1 @@
-export const REACT_QUERY_KEY_PLATFORMS = ['platforms']
+export const PLATFORMS_CACHE_KEY = ['platforms']

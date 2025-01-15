@@ -1,3 +1,5 @@
+import { orderType } from "../../SortSelector/types/order";
+
 export interface Game {
     id: number;
     slug: string;
@@ -105,4 +107,12 @@ interface Tag {
     language: string;
     games_count: number;
     image_background: string;
+}
+
+export interface Params {
+    genres: number | null;
+    parent_platforms: number | null;
+    ordering: orderType | null;
+    page_size: number;
+    search: string;
 }

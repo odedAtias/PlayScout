@@ -1,1 +1,1 @@
-export const REACT_QUERY_KEY_GENRES = ['genres'];
+export const GENRES_CACHE_KEY = ['genres'];
