@@ -22,6 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "src/*" : ["src/*"],
+      "layout" : ["src/layout"],
+      "navbar/*" : ["src/layout/navbar/*"],
     }
   },
   "include": ["src"]

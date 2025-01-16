@@ -5,7 +5,7 @@ import { useColorMode, IconButton } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 
-export const ColorModeSwitcher: FC = () => {
+const ColorModeSwitcher: FC = () => {
     const { colorMode, toggleColorMode } = useColorMode();
 
     const colorModeMap = Object.freeze({
@@ -21,3 +21,5 @@ export const ColorModeSwitcher: FC = () => {
         />
     )
 }
+
+export default ColorModeSwitcher;

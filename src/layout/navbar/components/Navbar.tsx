@@ -3,13 +3,12 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Image, HStack, InputProps, useColorModeValue } from '@chakra-ui/react'
 // FS imports 
-import SearchInput from './SearchInput';
 import { useCreateContext } from '../../../hooks';
 import { Logo } from '../../../assets/images';
-import { ColorModeSwitcher } from './';
+import { ColorModeSwitcher, SearchInput } from 'navbar/components';
 import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
 
-export const Navbar: FC = () => {
+const Navbar: FC = () => {
     const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const handleUpdateSearch = (debouncedSearchText: string) => {
@@ -33,3 +32,5 @@ export const Navbar: FC = () => {
         </HStack >
     )
 };
+
+export default Navbar;

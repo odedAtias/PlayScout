@@ -16,6 +16,8 @@ export default defineConfig({
   resolve: {
     alias: {
       src: path.resolve((new URL('.', import.meta.url).pathname, 'src')),
+      layout: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout')),
+      navbar:  path.resolve((new URL('.', import.meta.url).pathname, 'src/layout/navbar')),
     }
   },
 })
