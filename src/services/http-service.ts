@@ -1,7 +1,7 @@
 // Third party libraries imports
-import apiClient from "./api-client";
+import { AxiosRequestConfig } from 'axios';
 // FS imports
-import { AxiosRequestConfig } from "axios";
+import apiClient from "./api-client";
 
 export class HttpService {
 

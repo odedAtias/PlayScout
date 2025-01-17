@@ -22,6 +22,7 @@ export default defineConfig({
       features: path.resolve((new URL('.', import.meta.url).pathname, 'src/features')),
       hooks: path.resolve((new URL('.', import.meta.url).pathname, 'src/hooks')),
       utils: path.resolve((new URL('.', import.meta.url).pathname, 'src/utils')),
+      services: path.resolve((new URL('.', import.meta.url).pathname, 'src/services')),
       types: path.resolve((new URL('.', import.meta.url).pathname, 'src/types')),
       layout: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout')),
       navbar: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout/navbar')),

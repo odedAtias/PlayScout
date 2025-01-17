@@ -25,6 +25,7 @@
       "assets/*" : ["src/assets/*"],
       "hooks" : ["src/hooks"],
       "utils" : ["src/utils"],
+      "services" : ["src/services"],
       "types" : ["src/types"],
       "components": ["src/components"],
       "context/*" : ["src/context/*"],
