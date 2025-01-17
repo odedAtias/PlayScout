@@ -16,8 +16,12 @@ export default defineConfig({
   resolve: {
     alias: {
       src: path.resolve((new URL('.', import.meta.url).pathname, 'src')),
+      assets: path.resolve((new URL('.', import.meta.url).pathname, 'src/assets')),
+      components: path.resolve((new URL('.', import.meta.url).pathname, 'src/components')),
+      context: path.resolve((new URL('.', import.meta.url).pathname, 'src/context')),
+      hooks: path.resolve((new URL('.', import.meta.url).pathname, 'src/hooks')),
       layout: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout')),
-      navbar:  path.resolve((new URL('.', import.meta.url).pathname, 'src/layout/navbar')),
+      navbar: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout/navbar')),
     }
   },
 })

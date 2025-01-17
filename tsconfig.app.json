@@ -22,6 +22,10 @@
     "baseUrl": ".",
     "paths": {
       "src/*" : ["src/*"],
+      "assets/*" : ["src/assets/*"],
+      "hooks" : ["src/hooks"],
+      "components": ["src/components"],
+      "context/*" : ["src/context/*"],
       "layout" : ["src/layout"],
       "navbar/*" : ["src/layout/navbar/*"],
     }
