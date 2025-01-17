@@ -3,11 +3,11 @@ import { FC } from 'react'
 // Third party libraries imports
 import { SimpleGrid } from '@chakra-ui/react'
 // FS imports
-import { PAGE_SIZE } from '../utils';
-import { GameCard, GameCardSkeleton } from '../../GameCard/components';
-import { List } from '../../../components';
-import { FetchResponse } from '../../../types/global';
-import { Game } from '../types';
+import { List } from 'components';
+import { FetchResponse } from 'types';
+import { PAGE_SIZE } from 'features/Games/utils';
+import { Game } from 'features/Games/types';
+import { GameCard, GameCardSkeleton } from 'features/GameCard/components';
 
 interface Props {
     pages: FetchResponse<Game>[];

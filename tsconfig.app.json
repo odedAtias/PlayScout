@@ -24,6 +24,8 @@
       "src/*" : ["src/*"],
       "assets/*" : ["src/assets/*"],
       "hooks" : ["src/hooks"],
+      "utils" : ["src/utils"],
+      "types" : ["src/types"],
       "components": ["src/components"],
       "context/*" : ["src/context/*"],
       "features/*" : ["src/features/*"],

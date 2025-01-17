@@ -1,15 +1,15 @@
 // React imports
 import { FC, useMemo } from 'react'
 // FS imports
-import GenericImage from '../../../components/GenericImage'
-import { getOptimizedCardImage } from '../../../utils/images'
+import { GenericImage } from 'components'
+import { getOptimizedCardImage } from 'utils'
 
 interface Props {
     imageUrl: string,
     imageAlt: string,
 }
 
-const CardImage: FC<Props> = ({ imageUrl, imageAlt }) => {
+const GameCardImage: FC<Props> = ({ imageUrl, imageAlt }: Props) => {
     const optimizedImageUrl = useMemo(() => getOptimizedCardImage(imageUrl), [imageUrl]);
 
     return (
@@ -17,4 +17,4 @@ const CardImage: FC<Props> = ({ imageUrl, imageAlt }) => {
     );
 };
 
-export default CardImage
+export default GameCardImage

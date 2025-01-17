@@ -21,6 +21,8 @@ export default defineConfig({
       context: path.resolve((new URL('.', import.meta.url).pathname, 'src/context')),
       features: path.resolve((new URL('.', import.meta.url).pathname, 'src/features')),
       hooks: path.resolve((new URL('.', import.meta.url).pathname, 'src/hooks')),
+      utils: path.resolve((new URL('.', import.meta.url).pathname, 'src/utils')),
+      types: path.resolve((new URL('.', import.meta.url).pathname, 'src/types')),
       layout: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout')),
       navbar: path.resolve((new URL('.', import.meta.url).pathname, 'src/layout/navbar')),
     }
