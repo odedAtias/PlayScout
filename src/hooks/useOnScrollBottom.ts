@@ -17,7 +17,6 @@ export const useOnScrollBottom = (onScrollToBottom: () => void) => {
                     const fullHeight = document.documentElement.scrollHeight;
                     scrollY + innerHeight + 1 >= fullHeight && onScrollToBottom();
                 }, 100);
-                console.info('========timeoutId',timeoutId);
             }
         };
 

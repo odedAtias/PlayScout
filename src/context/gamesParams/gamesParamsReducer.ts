@@ -1,12 +1,5 @@
 // FS imports
-import { GamesParamsState, GamesParamsAction } from "./types";
-
-export const initialState: GamesParamsState = {
-    selectedGenre: null,
-    selectedPlatform: null,
-    selectedOrderOption: null,
-    search: "",
-};
+import { GamesParamsState, GamesParamsAction } from "context/gamesParams";
 
 export const gamesParamsReducer = (state: GamesParamsState, action: GamesParamsAction): GamesParamsState => {
     switch (action.type) {
