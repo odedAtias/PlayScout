@@ -1,0 +1,1 @@
+export { default as gamesService } from './games-service';

@@ -1,13 +1,13 @@
 // Third-party libraries imports
 import { useInfiniteQuery } from "@tanstack/react-query";
 // FS imports
-import gamesService from "../services/games-service";
-import { FetchResponse } from "../../../types/global";
-import { Game, Params } from "../types";
-import { GAMES_CACHE_KEY, PAGE_SIZE } from "../utils";
-import { useCreateContext } from "../../../hooks/useCreateContext";
-import { GamesParamsContext } from "../../../context/gamesParams/GamesParamsContext";
-import { omitFalsyValues } from "../../../utils";
+import { omitFalsyValues } from "utils";
+import { FetchResponse } from "types";
+import { useCreateContext } from "hooks";
+import { gamesService } from "features/Games/services";
+import { Game, Params } from "features/Games/types";
+import { GAMES_CACHE_KEY, PAGE_SIZE } from "features/Games/utils";
+import { GamesParamsContext } from "context/gamesParams";
 
 export const useFetchGames = () => {
 

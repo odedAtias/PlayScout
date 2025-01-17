@@ -1,10 +1,3 @@
-export interface PlatfromsFetchResponse {
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results: Platform[];
-}
-
 export interface Platform {
     id: number;
     name: string;

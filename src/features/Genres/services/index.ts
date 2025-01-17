@@ -1,0 +1,1 @@
+export { default as genresService } from './genres-service';

@@ -2,9 +2,10 @@
 import { useQuery } from "@tanstack/react-query";
 
 // FS imports
-import platformsService from "../services/platforms-service";
-import { PlatfromsFetchResponse } from "../types";
-import { PLATFORMS_CACHE_KEY } from "../constants";
+import { FetchResponse } from "types";
+import { platformsService } from "features/PlatformsFilter/services";
+import { PLATFORMS_CACHE_KEY } from "features/PlatformsFilter/utils";
+import { Platform } from "features/PlatformsFilter/types";
 
 export const useFetchPlatforms = () => {
 
@@ -13,7 +14,7 @@ export const useFetchPlatforms = () => {
         queryFn: platformsService.getAll,
     });
 
-    const { data, error, isLoading } = useQuery<PlatfromsFetchResponse>(queryOptions);
+    const { data, error, isLoading } = useQuery<FetchResponse<Platform>>(queryOptions);
 
     return { platforms: data?.results || [], error, isLoading };
 };
