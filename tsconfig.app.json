@@ -26,8 +26,10 @@
       "hooks" : ["src/hooks"],
       "components": ["src/components"],
       "context/*" : ["src/context/*"],
+      "features/*" : ["src/features/*"],
       "layout" : ["src/layout"],
       "navbar/*" : ["src/layout/navbar/*"],
+      
     }
   },
   "include": ["src"]

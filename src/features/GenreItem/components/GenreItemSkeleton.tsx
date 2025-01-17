@@ -2,7 +2,8 @@
 import { FC } from 'react'
 // Third party library imports
 import { Skeleton, SkeletonCircle } from '@chakra-ui/react'
-import GenreItemContainer from './GenreItemContainer'
+// FS imports
+import { GenreItemContainer } from 'features/GenreItem/components'
 
 const GenreItemSkeleton: FC = () => {
     return (

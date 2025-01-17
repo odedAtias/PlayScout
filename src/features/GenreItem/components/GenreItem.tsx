@@ -3,8 +3,7 @@ import { FC } from 'react';
 // Third party libraries imports
 import { Button, useColorModeValue } from '@chakra-ui/react';
 // FS imports
-import GenreImage from './GenreImage';
-import GenreItemContainer from './GenreItemContainer';
+import { GenreItemContainer, GenreImage } from 'features/GenreItem/components';
 
 interface Props {
     name: string;
@@ -14,7 +13,7 @@ interface Props {
 }
 
 const GenreItem: FC<Props> = ({ name, image_background, onClick, isSelected = false }) => {
-   
+
     const textColor = useColorModeValue('black', 'white');
     const selectedBackgroundColor = useColorModeValue('white', 'gray.700');
     const backgroundColor = isSelected ? selectedBackgroundColor : 'transparent';
