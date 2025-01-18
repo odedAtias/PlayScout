@@ -3,10 +3,10 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Image, HStack, InputProps, useColorModeValue } from '@chakra-ui/react'
 // FS imports 
-import { useCreateContext } from '../../../hooks';
-import { Logo } from '../../../assets/images';
+import { useCreateContext } from 'hooks';
+import { Logo } from 'assets/images';
 import { ColorModeSwitcher, SearchInput } from 'navbar/components';
-import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
+import { GamesParamsContext, GamesParamsContextProps } from 'context/gamesParams';
 
 const Navbar: FC = () => {
     const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);

@@ -3,8 +3,8 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Heading } from '@chakra-ui/react'
 // FS imports
-import { useCreateContext } from '../../../hooks'
-import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
+import { useCreateContext } from 'hooks'
+import { GamesParamsContext, GamesParamsContextProps } from 'context/gamesParams'
 
 const GamesHeading: FC = () => {
 

@@ -3,11 +3,9 @@ import { FC } from 'react';
 // Third party libraries imports
 import { Box } from '@chakra-ui/react';
 // FS imports
-import { useFetchGames } from '../hooks/useFetchGames';
-import useOnScrollBottom from '../hooks/useOnScrollBottom';
-import GamesList from './GamesList';
-import GamesListErrorMessage from './GamesListErrorMessage';
-import GamesListLoader from './GamesListLoader';
+import { useOnScrollBottom } from 'hooks';
+import { useFetchGames } from 'features/Games/hooks';
+import { GamesList, GamesListErrorMessage, GamesListLoader } from 'features/Games/components';
 
 const Games: FC = () => {
 

@@ -1,4 +1,4 @@
-import { Placeholder } from "../assets/images";
+import { Placeholder } from "assets/images";
 
 export const getOptimizedCardImage = (imageUrl: string): string => {
     if (!imageUrl) {

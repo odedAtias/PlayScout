@@ -1,0 +1,1 @@
+export { default as platformsService } from './platforms-service';

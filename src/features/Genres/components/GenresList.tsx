@@ -1,13 +1,11 @@
 // React imports
 import { FC } from 'react';
 // FS imports
-import GenreItem from '../../GenreItem/components/GenreItem';
-import GenreItemSkeleton from '../../GenreItem/components/GenreItemSkeleton';
-import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext';
-import { List } from '../../../components';
-import { SelectedGenre } from '../../../context/gamesParams/types';
-import { Genre } from '../types';
-import { useCreateContext } from '../../../hooks';
+import { List } from 'components';
+import { useCreateContext } from 'hooks';
+import { GamesParamsContext, GamesParamsContextProps, SelectedGenre } from 'context/gamesParams';
+import { GenreItem, GenreItemSkeleton } from 'features/GenreItem/components';
+import { Genre } from 'features/Genres/types';
 
 interface Props {
     genres: Genre[];

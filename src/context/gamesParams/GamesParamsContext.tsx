@@ -1,7 +1,7 @@
 // React imports
-import { createContext, Dispatch } from "react";
+import { createContext, Dispatch } from "react"
 // FS imports
-import { GamesParamsState, GamesParamsAction } from "./types";
+import { GamesParamsState, GamesParamsAction } from "context/gamesParams"
 
 export interface GamesParamsContextProps {
     state: GamesParamsState;

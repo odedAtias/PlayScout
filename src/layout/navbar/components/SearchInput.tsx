@@ -2,7 +2,8 @@
 import { ChangeEvent, FC, useEffect, useState } from 'react'
 // Third party libraries imports
 import { Input, InputProps } from '@chakra-ui/react'
-import { useDebounce } from '../../../hooks';
+// FS imports
+import { useDebounce } from 'hooks';
 
 interface Props {
     inputProps?: InputProps,

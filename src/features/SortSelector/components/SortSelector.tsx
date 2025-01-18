@@ -3,12 +3,12 @@ import { FC, useMemo } from 'react'
 // Third party libraries imports
 import { MenuItem } from '@chakra-ui/react'
 // FS imports
-import GenericMenu from '../../../components/GenericMenu'
-import { useCreateContext } from '../../../hooks'
-import { ORDERING_OPTIONS } from '../utils/constants'
-import { OrderOption, orderType } from '../types/order'
-import { capitalizeFirstLetter } from '../../../utils/strings'
-import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
+import { GenericMenu } from 'components'
+import { useCreateContext } from 'hooks'
+import { ORDERING_OPTIONS } from 'features/SortSelector/utils'
+import { OrderOption, orderType } from 'features/SortSelector/types'
+import { capitalizeFirstLetter } from 'utils'
+import { GamesParamsContext, GamesParamsContextProps } from 'context/gamesParams'
 
 const GamesSortBySelector: FC = () => {
 

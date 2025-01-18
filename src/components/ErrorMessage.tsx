@@ -1,7 +1,7 @@
 // React imports
 import { FC, ReactNode } from 'react';
-import { NotAllowedIcon } from '@chakra-ui/icons';
 // Third party libraries imports
+import { NotAllowedIcon } from '@chakra-ui/icons';
 import { Container, ContainerProps, Text, TextProps } from '@chakra-ui/react';
 
 interface Props {

@@ -1,5 +1,5 @@
 // FS imports
-import { CanceledError } from '../services/api-client';
+import { CanceledError } from 'axios';
 
 
 export const getRequestError = (err: unknown): string => {

@@ -1,10 +1,10 @@
 // Third party libraries imports
 import { useQuery } from '@tanstack/react-query';
 // FS imports
-import genresService from '../services/genres-service';
-import { GENRES_CACHE_KEY } from '../utils';
-import { FetchResponse } from '../../../types/global';
-import { Genre } from '../types';
+import { FetchResponse } from 'types';
+import { genresService } from 'features/Genres/services';
+import { GENRES_CACHE_KEY } from 'features/Genres/utils';
+import { Genre } from 'features/Genres/types';
 
 export const useFetchGenres = () => {
 

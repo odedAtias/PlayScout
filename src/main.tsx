@@ -6,9 +6,9 @@ import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 // FS imports
-import App from './App.tsx';
-import theme from './style/theme.ts';
-import GamesParamsContextProvider from './context/gamesParams/GamesParamsContextProvider.tsx';
+import App from 'src/App.tsx';
+import theme from 'src/style/theme.ts';
+import { GamesParamsContextProvider } from 'context/gamesParams';
 
 const queryClient = new QueryClient();
 

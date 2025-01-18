@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react'
 // FS imports
-import { ErrorMessage } from '../../../components'
+import { ErrorMessage } from 'components'
 
 interface Props {
     error: Error | null,

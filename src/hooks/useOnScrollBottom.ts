@@ -1,15 +1,16 @@
+// React imports
 import { useEffect } from 'react';
 
-function useOnScrollBottom(onScrollToBottom: () => void) {
+export const useOnScrollBottom = (onScrollToBottom: () => void) => {
 
     useEffect(() => {
-        let timeoutId: number | null = null;
+        let timeoutId: number | undefined = undefined;
 
         // After 100ms, it checks whether the user has scrolled to the bottom of the page
         const handleScrollToBottom = () => {
             if (!timeoutId) {
-                timeoutId = setTimeout(() => {
-                    timeoutId = null;
+                timeoutId = window.setTimeout(() => {
+                    timeoutId = undefined;
 
                     // This is the actual check if the client is scrolled to the bottom
                     const { scrollY, innerHeight } = window;
@@ -27,5 +28,3 @@ function useOnScrollBottom(onScrollToBottom: () => void) {
         };
     }, [onScrollToBottom]);
 }
-
-export default useOnScrollBottom;

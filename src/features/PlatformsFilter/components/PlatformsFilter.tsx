@@ -3,14 +3,14 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Box, MenuItem, Skeleton, Text } from "@chakra-ui/react"
 // FS imports
-import GenericMenu from '../../../components/GenericMenu'
-import { useCreateContext } from '../../../hooks'
-import { useFetchPlatforms } from '../hooks'
-import { Platform } from '../types'
-import { GamesParamsContext, GamesParamsContextProps } from '../../../context/gamesParams/GamesParamsContext'
-import { SelectedPlatform } from '../../../context/gamesParams/types'
+import { GenericMenu } from 'components'
+import { useCreateContext } from 'hooks'
+import { useFetchPlatforms } from 'features/PlatformsFilter/hooks'
+import { Platform } from 'features/PlatformsFilter/types'
+import { GamesParamsContext, GamesParamsContextProps, SelectedPlatform } from 'context/gamesParams'
 
 const PlatformsFilter: FC = () => {
+    
     const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
 
     const { platforms, isLoading, error } = useFetchPlatforms();

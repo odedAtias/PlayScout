@@ -1,10 +1,7 @@
 // React imports
 import { FC, ReactNode, Reducer, useReducer } from "react";
 // FS imports
-import { GamesParamsAction, GamesParamsState } from "./types";
-import { gamesParamsReducer, initialState } from "./gamesParamsReducer";
-import { GamesParamsContext } from "./GamesParamsContext";
-
+import { GamesParamsAction, GamesParamsState, gamesParamsReducer, initialState, GamesParamsContext } from  "context/gamesParams"
 interface GamesParamsContextProviderProps {
     children: ReactNode;
 };
