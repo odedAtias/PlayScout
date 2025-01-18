@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clearAll" : "rm -rf node_modules && rm -rf yarn.lock && yarn"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.2.4",
