@@ -26,7 +26,7 @@ export type GamesParamsAction =
     | { type: "UPDATE_SEARCH"; payload: string };
 
 
-    export const initialState: GamesParamsState = {
+export const initialState: GamesParamsState = {
     selectedGenre: null,
     selectedPlatform: null,
     selectedOrderOption: null,
