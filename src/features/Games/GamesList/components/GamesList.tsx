@@ -7,7 +7,7 @@ import { List } from 'components';
 import { FetchResponse } from 'types';
 import { PAGE_SIZE } from 'src/features/Games/GamesList/utils';
 import { Game } from 'src/features/Games/GamesList/types';
-import { GameCard, GameCardSkeleton } from 'features/GameCard/components';
+import { GameCard, GameCardSkeleton } from 'features/Games/GameCard/components';
 
 interface Props {
     pages: FetchResponse<Game>[];

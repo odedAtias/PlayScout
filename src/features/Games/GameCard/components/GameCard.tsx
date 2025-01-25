@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Box, CardBody, Heading, HStack, Spacer } from '@chakra-ui/react';
 // FS imports
 import { Game } from 'src/features/Games/GamesList/types';
-import { GameCardContainer, GameCardImage, CriticScore, PlatformsList } from 'features/GameCard/components';
+import { GameCardContainer, GameCardImage, CriticScore, PlatformsList } from 'features/Games/GameCard/components';
 
 interface Props {
     game: Game,

@@ -3,7 +3,7 @@ import { FC, useMemo } from 'react'
 // Third party libraries imports
 import { Badge } from '@chakra-ui/react'
 // Fs imports
-import { getColorByScore } from 'features/GameCard/utils'
+import { getColorByScore } from 'features/Games/GameCard/utils'
 
 interface Props {
     score: number,
