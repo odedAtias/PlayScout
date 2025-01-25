@@ -3,7 +3,7 @@ import { FC } from 'react';
 // Third party libraries imports
 import { Button, useColorModeValue } from '@chakra-ui/react';
 // FS imports
-import { GenreItemContainer, GenreImage } from 'features/GenreItem/components';
+import { GenreItemContainer, GenreImage } from 'features/Genres/GenreItem/components';
 
 interface Props {
     name: string;

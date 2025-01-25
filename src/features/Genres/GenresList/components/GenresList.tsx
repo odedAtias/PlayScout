@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { List } from 'components';
 import { useCreateContext } from 'hooks';
 import { GamesParamsContext, GamesParamsContextProps, SelectedGenre } from 'features/Games/context/gamesParams';
-import { GenreItem, GenreItemSkeleton } from 'features/GenreItem/components';
+import { GenreItem, GenreItemSkeleton } from 'features/Genres/GenreItem/components';
 import { Genre } from 'features/Genres/GenresList/types';
 
 interface Props {
