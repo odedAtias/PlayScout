@@ -5,8 +5,8 @@ import { SimpleGrid } from '@chakra-ui/react'
 // FS imports
 import { List } from 'components';
 import { FetchResponse } from 'types';
-import { PAGE_SIZE } from 'features/Games/utils';
-import { Game } from 'features/Games/types';
+import { PAGE_SIZE } from 'src/features/Games/GamesList/utils';
+import { Game } from 'src/features/Games/GamesList/types';
 import { GameCard, GameCardSkeleton } from 'features/GameCard/components';
 
 interface Props {

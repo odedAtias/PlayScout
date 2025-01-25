@@ -4,10 +4,10 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { omitFalsyValues } from "utils";
 import { FetchResponse } from "types";
 import { useCreateContext } from "hooks";
-import { gamesService } from "features/Games/services";
-import { Game, Params } from "features/Games/types";
-import { GAMES_CACHE_KEY, PAGE_SIZE } from "features/Games/utils";
-import { GamesParamsContext } from "features/Games/context/gamesParams";
+import { gamesService } from "src/features/Games/GamesList/services";
+import { Game, Params } from "src/features/Games/GamesList/types";
+import { GAMES_CACHE_KEY, PAGE_SIZE } from "src/features/Games/GamesList/utils";
+import { GamesParamsContext } from "features/Games/GamesList/context/gamesParams";
 
 export const useFetchGames = () => {
 
