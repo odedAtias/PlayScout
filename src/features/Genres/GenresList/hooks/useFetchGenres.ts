@@ -2,9 +2,9 @@
 import { useQuery } from '@tanstack/react-query';
 // FS imports
 import { FetchResponse } from 'types';
-import { genresService } from 'features/Genres/services';
-import { GENRES_CACHE_KEY } from 'features/Genres/utils';
-import { Genre } from 'features/Genres/types';
+import { genresService } from 'features/Genres/GenresList/services';
+import { GENRES_CACHE_KEY } from 'features/Genres/GenresList/utils';
+import { Genre } from 'features/Genres/GenresList/types';
 
 export const useFetchGenres = () => {
 
