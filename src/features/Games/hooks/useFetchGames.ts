@@ -7,7 +7,7 @@ import { useCreateContext } from "hooks";
 import { gamesService } from "features/Games/services";
 import { Game, Params } from "features/Games/types";
 import { GAMES_CACHE_KEY, PAGE_SIZE } from "features/Games/utils";
-import { GamesParamsContext } from "context/gamesParams";
+import { GamesParamsContext } from "features/Games/context/gamesParams";
 
 export const useFetchGames = () => {
 

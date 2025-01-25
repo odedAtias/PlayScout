@@ -3,7 +3,7 @@ import { FC } from 'react';
 // FS imports
 import { List } from 'components';
 import { useCreateContext } from 'hooks';
-import { GamesParamsContext, GamesParamsContextProps, SelectedGenre } from 'context/gamesParams';
+import { GamesParamsContext, GamesParamsContextProps, SelectedGenre } from 'features/Games/context/gamesParams';
 import { GenreItem, GenreItemSkeleton } from 'features/GenreItem/components';
 import { Genre } from 'features/Genres/types';
 

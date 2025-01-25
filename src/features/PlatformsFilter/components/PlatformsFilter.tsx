@@ -7,7 +7,7 @@ import { GenericMenu } from 'components'
 import { useCreateContext } from 'hooks'
 import { useFetchPlatforms } from 'features/PlatformsFilter/hooks'
 import { Platform } from 'features/PlatformsFilter/types'
-import { GamesParamsContext, GamesParamsContextProps, SelectedPlatform } from 'context/gamesParams'
+import { GamesParamsContext, GamesParamsContextProps, SelectedPlatform } from 'features/Games/context/gamesParams'
 
 const PlatformsFilter: FC = () => {
     

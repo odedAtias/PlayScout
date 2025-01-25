@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { Heading } from '@chakra-ui/react'
 // FS imports
 import { useCreateContext } from 'hooks'
-import { GamesParamsContext, GamesParamsContextProps } from 'context/gamesParams'
+import { GamesParamsContext, GamesParamsContextProps } from 'features/Games/context/gamesParams'
 
 const GamesHeading: FC = () => {
 

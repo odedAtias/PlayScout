@@ -1,5 +1,5 @@
 // FS imports
-import { GamesParamsState, GamesParamsAction } from "context/gamesParams";
+import { GamesParamsState, GamesParamsAction } from "features/Games/context/gamesParams";
 
 export const gamesParamsReducer = (state: GamesParamsState, action: GamesParamsAction): GamesParamsState => {
     switch (action.type) {
