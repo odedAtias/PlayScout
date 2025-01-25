@@ -6,7 +6,7 @@ import { Box, HStack } from '@chakra-ui/react';
 import { Games } from 'features/Games/GamesList/components'
 import { PlatformsFilter } from 'features/PlatformsFilter/components';
 import { SortSelector } from 'features/SortSelector/components';
-import { GamesHeading } from 'features/GamesHeading/components';
+import { GamesHeading } from 'src/features/Games/GamesHeading/components';
 
 export const Main: FC = () => {
 
