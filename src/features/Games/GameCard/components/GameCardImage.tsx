@@ -2,7 +2,7 @@
 import { FC, useMemo } from 'react'
 // FS imports
 import { GenericImage } from 'components'
-import { getOptimizedCardImage } from 'utils'
+import { getOptimizedCardImage } from 'features/Games/GameCard/utils'
 
 interface Props {
     imageUrl: string,
