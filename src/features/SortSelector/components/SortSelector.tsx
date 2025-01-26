@@ -8,7 +8,7 @@ import { useCreateContext } from 'hooks'
 import { ORDERING_OPTIONS } from 'features/SortSelector/utils'
 import { OrderOption, orderType } from 'features/SortSelector/types'
 import { capitalizeFirstLetter } from 'utils'
-import { GamesParamsContext, GamesParamsContextProps } from 'context/gamesParams'
+import { GamesParamsContext, GamesParamsContextProps } from 'features/Games/GamesList/context/gamesParams'
 
 const GamesSortBySelector: FC = () => {
 
