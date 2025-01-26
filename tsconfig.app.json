@@ -28,7 +28,6 @@
       "services" : ["src/services"],
       "types" : ["src/types"],
       "components": ["src/components"],
-      "context/*" : ["src/context/*"],
       "features/*" : ["src/features/*"],
       "layout" : ["src/layout"],
       "navbar/*" : ["src/layout/navbar/*"],

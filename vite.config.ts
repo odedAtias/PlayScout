@@ -18,7 +18,6 @@ export default defineConfig({
       src: path.resolve((new URL('.', import.meta.url).pathname, 'src')),
       assets: path.resolve((new URL('.', import.meta.url).pathname, 'src/assets')),
       components: path.resolve((new URL('.', import.meta.url).pathname, 'src/components')),
-      context: path.resolve((new URL('.', import.meta.url).pathname, 'src/context')),
       features: path.resolve((new URL('.', import.meta.url).pathname, 'src/features')),
       hooks: path.resolve((new URL('.', import.meta.url).pathname, 'src/hooks')),
       utils: path.resolve((new URL('.', import.meta.url).pathname, 'src/utils')),
