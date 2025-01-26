@@ -1,7 +1,8 @@
 // Third party libraries imports
 import { describe, it, expect } from 'vitest';
+
 // FS imports
-import { getColorByScore, getOptimizedCardImage } from 'features/Games/GameCard/utils'; // שנה את הנתיב למיקום המתאים של הפונקציה
+import { getColorByScore, getOptimizedCardImage } from 'features/Games/GameCard/utils';
 import { Placeholder } from 'src/assets/images';
 
 describe('getColorByScore', () => {

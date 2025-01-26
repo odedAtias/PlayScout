@@ -5,9 +5,8 @@ import { MenuItem } from '@chakra-ui/react'
 // FS imports
 import { GenericMenu } from 'components'
 import { useCreateContext } from 'hooks'
-import { ORDERING_OPTIONS } from 'features/SortSelector/utils'
+import { ORDERING_OPTIONS, capitalizeFirstLetter } from 'features/SortSelector/utils'
 import { OrderOption, orderType } from 'features/SortSelector/types'
-import { capitalizeFirstLetter } from 'utils'
 import { GamesParamsContext, GamesParamsContextProps } from 'features/Games/GamesList/context/gamesParams'
 
 const GamesSortBySelector: FC = () => {

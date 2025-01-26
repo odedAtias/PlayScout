@@ -1,7 +1,7 @@
 // Third-party libraries imports
 import { useInfiniteQuery } from "@tanstack/react-query";
 // FS imports
-import { omitFalsyValues } from "utils";
+import { omitFalsyValues } from "features/Games/GamesList/utils";
 import { FetchResponse } from "types";
 import { useCreateContext } from "hooks";
 import { gamesService } from "src/features/Games/GamesList/services";
