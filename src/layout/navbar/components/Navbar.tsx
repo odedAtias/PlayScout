@@ -5,9 +5,10 @@ import { HStack, Image, InputProps, useColorModeValue } from '@chakra-ui/react';
 // FS imports 
 import { Logo } from 'assets/images';
 import { ColorModeSwitcher, SearchInput } from 'navbar/components';
-import useGamesParams from 'features/Games/GamesList/store/useGamesParams';
+import { useGamesParams } from 'features/Games/GamesList/store';
 
 const Navbar: FC = () => {
+
     const { updateSearch } = useGamesParams();
 
     const handleUpdateSearch = (debouncedSearchText: string) => {

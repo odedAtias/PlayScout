@@ -1,24 +1,7 @@
 // Third party libraries imports
 import { create } from 'zustand';
 
-import { SelectedGenre, SelectedPlatform } from './types';
-
-import { orderType } from 'src/features/SortSelector/types';
-
-interface GamesParamsState {
-    selectedGenre: SelectedGenre | null;
-    selectedPlatform: SelectedPlatform | null;
-    selectedOrderOption: orderType | null;
-    search: string;
-};
-
-interface GamesParamsReducers {
-    selectGenre: (genre: SelectedGenre) => void;
-    deselectGenre: () => void;
-    selectPlatform: (platform: SelectedPlatform) => void;
-    selectOrderOption: (order: orderType) => void;
-    updateSearch: (search: string) => void;
-};
+import { GamesParamsReducers, GamesParamsState } from 'features/Games/GamesList/store';
 
 const initialState: GamesParamsState = {
     selectedGenre: null,
@@ -28,7 +11,9 @@ const initialState: GamesParamsState = {
 };
 
 const useGamesParams = create<GamesParamsState & GamesParamsReducers>((set) => ({
+    // Initial state
     ...initialState,
+    // Reducers
     selectGenre: (genre) => set(() => ({ selectedGenre: genre })),
     deselectGenre: () => set(() => ({ selectedGenre: null })),
     selectPlatform: (platform) => set(() => ({ selectedPlatform: platform })),

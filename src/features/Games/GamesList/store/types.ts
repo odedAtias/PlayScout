@@ -18,17 +18,10 @@ export interface GamesParamsState {
     search: string;
 }
 
-export type GamesParamsAction =
-    | { type: "SELECT_GENRE"; payload: SelectedGenre }
-    | { type: "DESELECT_GENRE" }
-    | { type: "SELECT_PLATFORM"; payload: SelectedPlatform }
-    | { type: "SELECT_ORDER_OPTION"; payload: orderType }
-    | { type: "UPDATE_SEARCH"; payload: string };
-
-
-export const initialState: GamesParamsState = {
-    selectedGenre: null,
-    selectedPlatform: null,
-    selectedOrderOption: null,
-    search: "",
-}
+export interface GamesParamsReducers {
+    selectGenre: (genre: SelectedGenre) => void;
+    deselectGenre: () => void;
+    selectPlatform: (platform: SelectedPlatform) => void;
+    selectOrderOption: (order: orderType) => void;
+    updateSearch: (search: string) => void;
+};

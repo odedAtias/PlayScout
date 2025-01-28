@@ -3,7 +3,7 @@ import { FC } from 'react'
 // Third party libraries imports
 import { Heading } from '@chakra-ui/react'
 // FS imports
-import useGamesParams from '../../GamesList/store/useGamesParams'
+import { useGamesParams } from 'features/Games/GamesList/store'
 
 const GamesHeading: FC = () => {
 

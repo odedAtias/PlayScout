@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { List } from 'components';
 import { GenreItem, GenreItemSkeleton } from 'features/Genres/GenreItem/components';
 import { Genre } from 'features/Genres/GenresList/types';
-import useGamesParams from 'features/Games/GamesList/store/useGamesParams';
+import { useGamesParams } from 'features/Games/GamesList/store';
 
 interface Props {
     genres: Genre[];

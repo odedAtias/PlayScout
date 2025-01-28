@@ -6,7 +6,7 @@ import { FetchResponse } from "types";
 import { gamesService } from "src/features/Games/GamesList/services";
 import { Game, Params } from "src/features/Games/GamesList/types";
 import { GAMES_CACHE_KEY, PAGE_SIZE } from "src/features/Games/GamesList/utils";
-import useGamesParams from "../store/useGamesParams";
+import { useGamesParams } from "features/Games/GamesList/store";
 
 export const useFetchGames = () => {
 

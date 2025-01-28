@@ -6,7 +6,7 @@ import { Box, MenuItem, Skeleton, Text } from "@chakra-ui/react"
 import { GenericMenu } from 'components'
 import { useFetchPlatforms } from 'features/PlatformsFilter/hooks'
 import { Platform } from 'features/PlatformsFilter/types'
-import useGamesParams from 'features/Games/GamesList/store/useGamesParams'
+import { useGamesParams } from 'features/Games/GamesList/store'
 
 const PlatformsFilter: FC = () => {
 
