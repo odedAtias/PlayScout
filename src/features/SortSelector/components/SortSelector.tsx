@@ -4,16 +4,15 @@ import { FC, useMemo } from 'react'
 import { MenuItem } from '@chakra-ui/react'
 // FS imports
 import { GenericMenu } from 'components'
-import { useCreateContext } from 'hooks'
-import { ORDERING_OPTIONS, capitalizeFirstLetter } from 'features/SortSelector/utils'
 import { OrderOption, orderType } from 'features/SortSelector/types'
-import { GamesParamsContext, GamesParamsContextProps } from 'features/Games/GamesList/context/gamesParams'
+import { ORDERING_OPTIONS, capitalizeFirstLetter } from 'features/SortSelector/utils'
+import useGamesParams from 'src/features/Games/GamesList/store/useGamesParams'
 
 const GamesSortBySelector: FC = () => {
 
-    const { state: { selectedOrderOption }, dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
+    const { selectedOrderOption, selectOrderOption } = useGamesParams();
 
-    const handleClickOrderOption = (name: orderType) => dispatch({ type: 'SELECT_ORDER_OPTION', payload: name });
+    const handleClickOrderOption = (name: orderType) => selectOrderOption(name);
 
     const renderItem = ({ id, name, label }: OrderOption) => {
         return (

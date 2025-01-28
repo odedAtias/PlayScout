@@ -2,10 +2,9 @@
 import { FC } from 'react';
 // FS imports
 import { List } from 'components';
-import { useCreateContext } from 'hooks';
-import { GamesParamsContext, GamesParamsContextProps, SelectedGenre } from 'features/Games/GamesList/context/gamesParams';
 import { GenreItem, GenreItemSkeleton } from 'features/Genres/GenreItem/components';
 import { Genre } from 'features/Genres/GenresList/types';
+import useGamesParams from 'features/Games/GamesList/store/useGamesParams';
 
 interface Props {
     genres: Genre[];
@@ -16,7 +15,7 @@ const GenresList: FC<Props> = (props: Props) => {
 
     const { genres, isLoading } = props;
 
-    const { state: { selectedGenre }, dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
+    const { selectedGenre, deselectGenre, selectGenre } = useGamesParams();
 
     const renderItem = (genre: Genre) => {
         return <GenreItem key={genre?.id} name={genre?.name} image_background={genre.image_background} onClick={() => handleClickGenre(genre?.id, genre?.name)} isSelected={genre?.id === selectedGenre?.id} />;
@@ -25,8 +24,8 @@ const GenresList: FC<Props> = (props: Props) => {
     const renderLoading = () => isLoading && Array.from({ length: 15 }, (_, index) => <GenreItemSkeleton key={index} />);
 
     const handleClickGenre = (id: number, name: string) => {
-        const newSelectedGenre: SelectedGenre = { id, name };
-        dispatch(selectedGenre?.id === newSelectedGenre?.id ? { type: 'DESELECT_GENRE' } : { type: 'SELECT_GENRE', payload: newSelectedGenre });
+        const newSelectedGenre = { id, name };
+        selectedGenre?.id === newSelectedGenre?.id ? deselectGenre() : selectGenre(newSelectedGenre);
     };
 
     return (

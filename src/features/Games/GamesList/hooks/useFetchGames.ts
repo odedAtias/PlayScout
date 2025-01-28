@@ -3,16 +3,14 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 // FS imports
 import { omitFalsyValues } from "features/Games/GamesList/utils";
 import { FetchResponse } from "types";
-import { useCreateContext } from "hooks";
 import { gamesService } from "src/features/Games/GamesList/services";
 import { Game, Params } from "src/features/Games/GamesList/types";
 import { GAMES_CACHE_KEY, PAGE_SIZE } from "src/features/Games/GamesList/utils";
-import { GamesParamsContext } from "features/Games/GamesList/context/gamesParams";
+import useGamesParams from "../store/useGamesParams";
 
 export const useFetchGames = () => {
 
-    const { state } = useCreateContext(GamesParamsContext);
-    const { search, selectedGenre, selectedOrderOption, selectedPlatform } = state;
+    const { search, selectedGenre, selectedOrderOption, selectedPlatform } = useGamesParams();
 
     const selectedGenreId = selectedGenre ? selectedGenre?.id : null;
     const selectedPlatformId = selectedPlatform ? selectedPlatform?.id : null;

@@ -1,18 +1,17 @@
 // React imports
-import { FC } from 'react'
+import { FC } from 'react';
 // Third party libraries imports
-import { Image, HStack, InputProps, useColorModeValue } from '@chakra-ui/react'
+import { HStack, Image, InputProps, useColorModeValue } from '@chakra-ui/react';
 // FS imports 
-import { useCreateContext } from 'hooks';
 import { Logo } from 'assets/images';
 import { ColorModeSwitcher, SearchInput } from 'navbar/components';
-import { GamesParamsContext, GamesParamsContextProps } from 'features/Games/GamesList/context/gamesParams';
+import useGamesParams from 'features/Games/GamesList/store/useGamesParams';
 
 const Navbar: FC = () => {
-    const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
+    const { updateSearch } = useGamesParams();
 
     const handleUpdateSearch = (debouncedSearchText: string) => {
-        dispatch({ type: 'UPDATE_SEARCH', payload: debouncedSearchText });
+        updateSearch(debouncedSearchText);
     };
 
     const borderColor = useColorModeValue('gray.400', 'gray.600');

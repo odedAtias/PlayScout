@@ -8,20 +8,17 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 // FS imports
 import App from 'src/App.tsx';
 import theme from 'src/style/theme.ts';
-import { GamesParamsContextProvider } from 'features/Games/GamesList/context/gamesParams';
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
-    <GamesParamsContextProvider>
-      <StrictMode>
-        <ChakraProvider theme={theme}>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <App />
-          <ReactQueryDevtools />
-        </ChakraProvider>
-      </StrictMode>
-    </GamesParamsContextProvider>
+    <StrictMode>
+      <ChakraProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <App />
+        <ReactQueryDevtools />
+      </ChakraProvider>
+    </StrictMode>
   </QueryClientProvider>
 )

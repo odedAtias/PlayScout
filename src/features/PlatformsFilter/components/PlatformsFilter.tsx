@@ -4,20 +4,19 @@ import { FC } from 'react'
 import { Box, MenuItem, Skeleton, Text } from "@chakra-ui/react"
 // FS imports
 import { GenericMenu } from 'components'
-import { useCreateContext } from 'hooks'
 import { useFetchPlatforms } from 'features/PlatformsFilter/hooks'
 import { Platform } from 'features/PlatformsFilter/types'
-import { GamesParamsContext, GamesParamsContextProps, SelectedPlatform } from 'features/Games/GamesList/context/gamesParams'
+import useGamesParams from 'features/Games/GamesList/store/useGamesParams'
 
 const PlatformsFilter: FC = () => {
-    
-    const { dispatch } = useCreateContext<GamesParamsContextProps>(GamesParamsContext);
+
+    const { selectPlatform } = useGamesParams();
 
     const { platforms, isLoading, error } = useFetchPlatforms();
 
     const handleClickPlatform = (id: number, name: string) => {
-        const newSelectedPlatform: SelectedPlatform = { id, name };
-        dispatch({ type: 'SELECT_PLATFORM', payload: newSelectedPlatform });
+        const newSelectedPlatform = { id, name };
+        selectPlatform(newSelectedPlatform);
     };
 
     const renderItem = ({ id, name }: Platform) => {
