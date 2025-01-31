@@ -2,8 +2,10 @@
 import { FC } from 'react'
 // third party libraries imports
 import { Grid, GridItem } from '@chakra-ui/react'
+import { Outlet } from 'react-router-dom';
 // FS imports
-import { Navbar, Main, Aside, Footer } from 'layout';
+import { Navbar, Footer } from 'src/layout';
+
 
 const App: FC = () => {
   return (
@@ -16,13 +18,8 @@ const App: FC = () => {
         <Navbar />
       </GridItem>
 
-      <GridItem as="aside" colSpan={1} display={{ base: 'none', lg: 'block' }}>
-        <Aside />
-      </GridItem>
-
-      <GridItem as="main" colSpan={{ base: 6, lg: 5 }}>
-        <Main />
-      </GridItem>
+      {/* Here will render all the pages */}
+      <Outlet />
 
       <GridItem as="footer" colSpan={6}>
         <Footer />

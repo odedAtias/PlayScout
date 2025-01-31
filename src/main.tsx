@@ -5,9 +5,10 @@ import { createRoot } from 'react-dom/client';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RouterProvider } from 'react-router-dom';
 // FS imports
-import App from 'src/App.tsx';
-import theme from 'src/style/theme.ts';
+import { theme } from 'style';
+import { router } from 'routes';
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <App />
+        <RouterProvider router={router} />
         <ReactQueryDevtools />
       </ChakraProvider>
     </StrictMode>

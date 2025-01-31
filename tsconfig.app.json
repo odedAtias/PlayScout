@@ -29,6 +29,8 @@
       "components": ["src/components"],
       "features/*" : ["src/features/*"],
       "layout" : ["src/layout"],
+      "routes" : ["src/routes"],
+      "style" : ["src/style"],
       "navbar/*" : ["src/layout/navbar/*"],
       
     }
