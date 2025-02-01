@@ -1,13 +1,19 @@
+// React imports
 import { FC } from 'react'
+// Third party libraries imports
 import { useParams } from 'react-router-dom'
+// FS imports
+import { useFetchGame } from '../hooks';
 
-const GameDetails: FC = () => {
+const GameDetailsPage: FC = () => {
 
   const { id } = useParams();
 
+  const { data: gameDetails } = useFetchGame(id);
+
   return (
-    <div> GameDetails with id : {id}</div>
+    <div> GameDetailsPage with id : {gameDetails?.description}</div>
   )
 }
 
-export default GameDetails
+export default GameDetailsPage

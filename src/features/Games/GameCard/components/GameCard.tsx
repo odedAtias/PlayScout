@@ -18,7 +18,7 @@ const GameCard: FC<Props> = ({ game }: Props) => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/games/:${id}`)
+        navigate(`/games/${id}`)
     };
 
     const cardProps: CardProps = {

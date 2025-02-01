@@ -1,7 +1,7 @@
 // Third party libraries imports
 import { AxiosRequestConfig } from 'axios';
 // FS imports
-import apiClient from "./api-client";
+import { apiClient } from "services";
 
 export class HttpService {
 
@@ -21,6 +21,19 @@ export class HttpService {
         }
         finally {
             console.log(`The method getAll ${this.endpoint} finished ...`);
+        }
+    }
+
+    getById = async<T>(id: string, requestConfig: AxiosRequestConfig = {}) => {
+        try {
+            const response = await apiClient.get<T>(`${this.endpoint}/${id}`, { ...requestConfig });
+            return response?.data;
+        }
+        catch (error) {
+            throw error;
+        }
+        finally {
+            console.log(`The method getById ${this.endpoint}/${id} finished ...`);
         }
     }
 };
