@@ -8,11 +8,13 @@ import App from 'src/App';
 
 const HomePage = lazy(() => import('src/layout/Pages/homePage/HomePage'));
 const GameDetails = lazy(() => import('src/layout/Pages/gameDetailsPage/main/components/GameDetailsPage'));
+const ErrorPage = lazy(() => import('src/layout/Pages/ErrorPage/main/components/ErrorPage'));
 
 const routes: RouteObject[] = [
     {
         path: '/',
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
