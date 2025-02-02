@@ -1,4 +1,4 @@
-import { orderType } from "../../../SortSelector/types/order";
+import { orderType } from "features/SortSelector/types";
 
 export interface Game {
     id: number;
