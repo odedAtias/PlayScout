@@ -6,14 +6,16 @@ import { createBrowserRouter, RouteObject } from 'react-router-dom';
 import App from 'src/App';
 
 
-const HomePage = lazy(() => import('src/layout/Pages/homePage/HomePage'));
-const GameDetailsPage = lazy(() => import('../layout/Pages/GameDetailsPage'));
+const HomePage = lazy(() => import('src/layout/Pages/HomePage'));
+const GameDetailsPage = lazy(() => import('src/layout/Pages/GameDetailsPage'));
+const ErrorPage = lazy(() => import('src/layout/Pages/ErrorPage'));
 
 
 const routes: RouteObject[] = [
     {
         path: '/',
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
