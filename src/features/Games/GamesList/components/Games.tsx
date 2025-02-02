@@ -17,7 +17,7 @@ const Games: FC = () => {
 
     return (
         <Box mb={'10%'}>
-            <GamesList pages={data?.pages || []} isLoading={isLoading} />
+            <GamesList pages={data?.pages!} isLoading={isLoading} />
             <GamesListErrorMessage error={error} />
             <GamesListLoader showLoader={hasNextPage && isFetchingNextPage} />
         </Box>

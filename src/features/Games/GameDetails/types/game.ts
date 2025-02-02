@@ -4,6 +4,7 @@ export interface GameDetails {
     name: string;
     name_original: string;
     description: string;
+    description_raw: string;
     metacritic: number;
     metacritic_platforms: {
         metascore: number;
