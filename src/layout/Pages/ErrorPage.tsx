@@ -2,7 +2,8 @@
 import { FC } from "react";
 // Third party libraries imports
 import { Box, Button, Heading, HStack, Text, useColorModeValue } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 // FS imports
 import { Footer, Navbar } from "layout";
 
@@ -10,12 +11,6 @@ const ErrorPage: FC = () => {
 
     const textColor = useColorModeValue("black", "white");
     const backgroundColor = useColorModeValue("white", "gray.700");
-
-    const navigate = useNavigate()
-
-    const handleClick = () => {
-        navigate('/');
-    };
 
     return (
         <>
@@ -34,10 +29,9 @@ const ErrorPage: FC = () => {
                         bg={backgroundColor}
                         borderRadius="full"
                         _hover={{ opacity: 0.8 }}
-                        aria-label="Return to home" 
-                        onClick={handleClick}
-                        >
-                        Return to Home
+                        aria-label="Return to home"
+                    >
+                        <Link to="/">Return to Home</Link>
                     </Button>
                 </Box>
             </HStack >
