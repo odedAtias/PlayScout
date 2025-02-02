@@ -7,14 +7,13 @@ import App from 'src/App';
 
 
 const HomePage = lazy(() => import('src/layout/Pages/homePage/HomePage'));
-const GameDetails = lazy(() => import('src/layout/Pages/gameDetailsPage/main/components/GameDetailsPage'));
-const ErrorPage = lazy(() => import('src/layout/Pages/ErrorPage/main/components/ErrorPage'));
+const GameDetailsPage = lazy(() => import('../layout/Pages/GameDetailsPage'));
+
 
 const routes: RouteObject[] = [
     {
         path: '/',
         element: <App />,
-        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
@@ -22,7 +21,7 @@ const routes: RouteObject[] = [
             },
             {
                 path: '/games/:id',
-                element: <GameDetails />,
+                element: <GameDetailsPage />,
             },
         ],
     },
