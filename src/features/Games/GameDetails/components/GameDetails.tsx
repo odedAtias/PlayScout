@@ -5,7 +5,7 @@ import { Box, BoxProps, ButtonProps, Heading, TextProps } from '@chakra-ui/react
 import { useParams } from 'react-router-dom';
 // FS imports
 import { ExpandableText } from 'components';
-import { useFetchGame } from 'features/Games/GameDetails/hooks';
+import { useFetchGame, useFetchGameTrailers } from 'features/Games/GameDetails/hooks';
 import { Loader } from 'src/components/Loader';
 import GameAttributes from './GameAttributes';
 
@@ -13,9 +13,12 @@ const GameDetails: FC = () => {
 
     const { id } = useParams();
 
-    const { data: gameDetails, isLoading } = useFetchGame(id!);
+    const { data: gameDetails, isLoading: isLoadingGameDetails } = useFetchGame(id!);
+    const { data: trailers, isLoading: isLoadingTrailer } = useFetchGameTrailers(id!);
 
-    if (isLoading) {
+    console.info('========trailers',trailers);
+
+    if (isLoadingGameDetails) {
         return <Loader spinnerProps={{ boxSize: 100 }} />;
     }
 
@@ -39,7 +42,7 @@ const GameDetails: FC = () => {
     };
 
     return (
-        <Box pb={{ base: '24', lg: '4' }} pt='4'>
+        <Box pb={{ base: '24', lg: '16' }} pt='4'>
             <Heading fontSize={{ base: '3xl', lg: '4xl' }} noOfLines={1} mb={2}>{gameDetails?.name ?? 'Game Details'}</Heading>
             <ExpandableText boxProps={boxProps} textProps={textProps} buttonProps={buttonProps}>
                 {gameDetails?.description_raw ?? 'No description available.'}

@@ -55,3 +55,13 @@ export interface Publisher {
     games_count: number;
     image_background: string;
 };
+
+export interface Trailer {
+    id: number;
+    name: string;
+    preview: string;
+    data: {
+        480: string;
+        max: string;
+    };
+}
