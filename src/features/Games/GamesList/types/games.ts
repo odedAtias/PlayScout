@@ -29,14 +29,14 @@ export interface Game {
     clip: null | any;
     tags: Tag[];
 }
-interface Rating {
+export interface Rating {
     id: number;
     title: string;
     count: number;
     percent: number;
 }
 
-interface AddedByStatus {
+export interface AddedByStatus {
     yet: number;
     owned: number;
     beaten: number;
@@ -45,7 +45,7 @@ interface AddedByStatus {
     playing: number;
 }
 
-interface Platform {
+export interface Platform {
     platform: PlatformDetails;
     released_at: string;
     requirements_en?: Requirements | null;
@@ -72,13 +72,13 @@ export interface ParentPlatform {
     platform: PlatformDetailsShort;
 }
 
-interface PlatformDetailsShort {
+export interface PlatformDetailsShort {
     id: number;
     name: string;
     slug: string;
 }
 
-interface Genre {
+export interface Genre {
     id: number;
     name: string;
     slug: string;
@@ -86,7 +86,7 @@ interface Genre {
     image_background: string;
 }
 
-interface Store {
+export interface Store {
     id: number;
     store: StoreDetails;
 }
@@ -100,7 +100,7 @@ interface StoreDetails {
     image_background: string;
 }
 
-interface Tag {
+export interface Tag {
     id: number;
     name: string;
     slug: string;

@@ -1,15 +1,16 @@
 // React imports
 import { FC, useState } from 'react'
 // Third party libraries imports
-import { TextProps, Text, Button, ButtonProps, Box } from '@chakra-ui/react';
+import { TextProps, Text, Button, ButtonProps, Box, BoxProps } from '@chakra-ui/react';
 
 interface Props {
     children: string;
+    boxProps?: BoxProps;
     textProps?: TextProps;
     buttonProps?: ButtonProps;
 };
 
-const ExpandableText: FC<Props> = ({ children, textProps = {}, buttonProps = {} }: Props) => {
+const ExpandableText: FC<Props> = ({ children, textProps = {}, buttonProps = {}, boxProps = {} }: Props) => {
 
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -44,11 +45,11 @@ const ExpandableText: FC<Props> = ({ children, textProps = {}, buttonProps = {} 
     const truncatedText = children?.length > maxLength ? getTruncatedText(children) : children;
 
     return (
-        <Box alignItems={'center'} >
-            <Text {...textProps} display={"inline"}>
+        <Box {...boxProps}>
+            <Text {...textProps} >
                 {isExpanded ? children : truncatedText}
             </Text>
-            <Button {...buttonProps} mb={'1.5'} onClick={handleClick}>{isExpanded ? "Show Less" : "Show More"}</Button>
+            <Button {...buttonProps} mb={'1.5'} onClick={handleClick}>{isExpanded ? "Read Less" : "Read More"}</Button>
         </Box>
     )
 }
