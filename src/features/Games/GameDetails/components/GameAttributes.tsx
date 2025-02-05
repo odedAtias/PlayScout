@@ -5,9 +5,9 @@ import { Grid, GridItemProps, Text, TextProps } from '@chakra-ui/react';
 // FS imports
 import { List } from 'components';
 import { CriticScore } from 'features/Games/GameCard/components';
-import { GameDetails, Publisher } from 'features/Games/GameDetails/types';
-import { Genre, ParentPlatform, PlatformDetailsShort } from 'features/Games/GamesList/types';
 import { GameAttributeItem } from 'features/Games/GameDetails/components';
+import { GameDetails } from 'features/Games/GameDetails/types';
+import { ParentPlatform } from 'features/Games/GamesList/types';
 
 interface Props {
     game: GameDetails,
@@ -21,7 +21,7 @@ const GameAttributes: FC<Props> = ({ game }) => {
     const genresList = useMemo(() => genres, [genres]);
     const publishersList = useMemo(() => publishers, [publishers]);
 
-    const renderItem = <T extends PlatformDetailsShort | Genre | Publisher>(item: T) => (
+    const renderItem = <T extends { id: number, name: string }>(item: T) => (
         <Text key={item?.id} fontSize={{ base: '0.6rem', md: '0.9rem' }} fontWeight="semibold">
             {item?.name}
         </Text>

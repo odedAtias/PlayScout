@@ -16,7 +16,7 @@ const GameDetails: FC = () => {
     const { data: gameDetails, isLoading: isLoadingGameDetails } = useFetchGame(id!);
     const { data: trailers, isLoading: isLoadingTrailer } = useFetchGameTrailers(id!);
 
-    console.info('========trailers',trailers);
+    console.info('========trailers', trailers);
 
     if (isLoadingGameDetails) {
         return <Loader spinnerProps={{ boxSize: 100 }} />;
