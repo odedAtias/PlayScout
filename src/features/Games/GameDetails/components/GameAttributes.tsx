@@ -38,7 +38,7 @@ const GameAttributes: FC<Props> = ({ game }) => {
     };
 
     return (
-        <Grid gridTemplateColumns={{ base: "repeat(1,1fr)", md: "repeat(2,1fr)" }} mt={5}>
+        <Grid gridTemplateColumns={{ base: "repeat(1,1fr)", md: "repeat(2,1fr)" }} w={'100%'} mt='2'>
             <GameAttributeItem attributeName="Platforms" gridItemProps={gridItemProps} labelProps={labelProps}>
                 <List data={platforms} renderItem={renderItem} />
             </GameAttributeItem>

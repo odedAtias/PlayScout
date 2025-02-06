@@ -1,22 +1,18 @@
 // React imports
 import { FC } from 'react';
 // Third party libraries imports
-import { Box, BoxProps, ButtonProps, Heading, TextProps } from '@chakra-ui/react';
+import { Box, BoxProps, ButtonProps, Heading, HStack, TextProps } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 // FS imports
-import { ExpandableText } from 'components';
-import { useFetchGame, useFetchGameTrailers } from 'features/Games/GameDetails/hooks';
-import { Loader } from 'src/components/Loader';
-import GameAttributes from './GameAttributes';
+import { ExpandableText, Loader } from 'components';
+import { GameAttributes, GameTrailer } from 'features/Games/GameDetails/components';
+import { useFetchGame } from 'features/Games/GameDetails/hooks';
 
 const GameDetails: FC = () => {
 
-    const { id } = useParams();
+    const { id: gameId } = useParams();
 
-    const { data: gameDetails, isLoading: isLoadingGameDetails } = useFetchGame(id!);
-    const { data: trailers, isLoading: isLoadingTrailer } = useFetchGameTrailers(id!);
-
-    console.info('========trailers', trailers);
+    const { data: gameDetails, isLoading: isLoadingGameDetails } = useFetchGame(gameId!);
 
     if (isLoadingGameDetails) {
         return <Loader spinnerProps={{ boxSize: 100 }} />;
@@ -34,7 +30,8 @@ const GameDetails: FC = () => {
         fontWeight: 'semibold',
         colorScheme: 'green',
         borderRadius: 'md',
-        ml: 2,
+        ml: '2',
+        mb: '1.5',
     };
 
     const boxProps: BoxProps = {
@@ -42,12 +39,19 @@ const GameDetails: FC = () => {
     };
 
     return (
-        <Box pb={{ base: '24', lg: '16' }} pt='4'>
-            <Heading fontSize={{ base: '3xl', lg: '4xl' }} noOfLines={1} mb={2}>{gameDetails?.name ?? 'Game Details'}</Heading>
-            <ExpandableText boxProps={boxProps} textProps={textProps} buttonProps={buttonProps}>
-                {gameDetails?.description_raw ?? 'No description available.'}
-            </ExpandableText>
-            <GameAttributes game={gameDetails!} />
+        <Box pb='5%' pt='1%'>
+            <HStack alignItems={'flex-start'} justifyContent={'space-between'}>
+                <Box>
+                    <Heading fontSize={{ base: '3xl', lg: '4xl' }} noOfLines={1} mb={2}>
+                        {gameDetails?.name ?? 'Game Details'}
+                    </Heading>
+                    <ExpandableText boxProps={boxProps} textProps={textProps} buttonProps={buttonProps} >
+                        {gameDetails?.description_raw ?? 'No description available.'}
+                    </ExpandableText>
+                    <GameAttributes game={gameDetails!} />
+                </Box>
+                <GameTrailer gameId={gameId!} />
+            </HStack>
         </Box>
     )
 }

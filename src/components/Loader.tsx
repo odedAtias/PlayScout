@@ -7,8 +7,10 @@ interface Props {
     spinnerProps?: SpinnerProps;
 };
 
-export const Loader: FC<Props> = ({ spinnerProps = { boxSize: 50 } }: Props) => (
+const Loader: FC<Props> = ({ spinnerProps = { boxSize: 50 } }: Props) => (
     <HStack w={'100%'} justifyContent={'center'} alignItems={'center'} marginTop={10}>
         <Spinner {...spinnerProps} />
     </HStack>
 );
+
+export default Loader;

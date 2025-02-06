@@ -1,7 +1,7 @@
 // React imports
 import { FC, useState } from 'react'
 // Third party libraries imports
-import { TextProps, Text, Button, ButtonProps, Box, BoxProps } from '@chakra-ui/react';
+import { TextProps, Text, Button, ButtonProps, Box, BoxProps, useBreakpointValue } from '@chakra-ui/react';
 
 interface Props {
     children: string;
@@ -18,7 +18,7 @@ const ExpandableText: FC<Props> = ({ children, textProps = {}, buttonProps = {},
         setIsExpanded((prev: boolean) => !prev);
     }
 
-    const maxLength = 400;
+    const maxLength = useBreakpointValue({ base: 250, lg: 350, xl: 500 });
 
     const getTruncatedText = (text: string): string => {
         if (text?.length <= maxLength)
@@ -42,14 +42,16 @@ const ExpandableText: FC<Props> = ({ children, textProps = {}, buttonProps = {},
         return `${truncated} ...`;
     };
 
-    const truncatedText = children?.length > maxLength ? getTruncatedText(children) : children;
+    const truncatedText = children?.length > maxLength! ? getTruncatedText(children) : children;
 
     return (
         <Box {...boxProps}>
             <Text {...textProps} >
                 {isExpanded ? children : truncatedText}
             </Text>
-            <Button {...buttonProps} mb={'1.5'} onClick={handleClick}>{isExpanded ? "Read Less" : "Read More"}</Button>
+            <Button {...buttonProps} onClick={handleClick}>
+                {isExpanded ? "Read Less" : "Read More"}
+            </Button>
         </Box>
     )
 }

@@ -1,7 +1,7 @@
 // React imports
 import { FC } from 'react'
 // FS imports
-import { Loader } from 'components/Loader';
+import { Loader } from 'components';
 
 interface Props {
     showLoader: boolean;
