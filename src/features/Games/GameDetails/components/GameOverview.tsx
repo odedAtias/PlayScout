@@ -13,10 +13,14 @@ interface Props {
 
 const GameOverview: FC<Props> = ({ gameId }: Props) => {
 
-    const { data: gameDetails, isLoading: isLoadingGameDetails } = useFetchGame(gameId!);
+    const { data: gameDetails, isLoading, error } = useFetchGame(gameId!);
 
-    if (isLoadingGameDetails) {
+    if (isLoading) {
         return <Loader spinnerProps={{ boxSize: 100 }} />;
+    }
+
+    else if (error) {
+        throw error;
     }
 
     const textProps: TextProps = {
