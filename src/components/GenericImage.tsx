@@ -5,11 +5,11 @@ import { Image, ImageProps } from '@chakra-ui/react'
 
 interface Props {
     imageUrl: string,
-    imageAlt: string,
-    imageProps: ImageProps,
+    imageAlt?: string,
+    imageProps?: ImageProps,
 }
 
-const GenericImage: FC<Props> = ({ imageUrl, imageAlt = "Image of something descriptive", imageProps }: Props) => {
+const GenericImage: FC<Props> = ({ imageUrl, imageAlt = "Image of something descriptive", imageProps = {} }: Props) => {
     return (
         <Image src={imageUrl} alt={imageAlt} {...imageProps} />
     )

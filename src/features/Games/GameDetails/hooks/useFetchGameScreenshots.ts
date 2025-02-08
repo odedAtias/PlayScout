@@ -17,5 +17,4 @@ export const useFetchGameScreenshots = (gameId: string) => {
     const response = useQuery<FetchResponse<Screenshot>>(queryOptions);
 
     return { ...response, data: response?.data?.results };
-
 };
