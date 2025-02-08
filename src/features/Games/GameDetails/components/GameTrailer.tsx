@@ -15,7 +15,7 @@ const GameTrailer: FC<Props> = ({ gameId, isPortrait }: Props) => {
     const { data: trailers, isLoading } = useFetchGameTrailers(gameId);
 
     if (isLoading) {
-        return <Skeleton h='96' w={isPortrait ? '100%' : '40%'} />
+        return <Skeleton h={isPortrait ? '48' : '96'} w={isPortrait ? '100%' : '40%'} />
     }
 
     const [src, poster] = [trailers?.[0]?.data?.[480], trailers?.[0]?.preview];
