@@ -7,14 +7,15 @@ import { useFetchGameTrailers } from 'features/Games/GameDetails/hooks';
 
 interface Props {
     gameId: string;
+    isPortrait: boolean;
 };
 
-const GameTrailer: FC<Props> = ({ gameId }: Props) => {
+const GameTrailer: FC<Props> = ({ gameId, isPortrait }: Props) => {
 
-    const { data: trailers, isLoading, error } = useFetchGameTrailers(gameId);
+    const { data: trailers, isLoading } = useFetchGameTrailers(gameId);
 
     if (isLoading) {
-        return <Skeleton h={"96"} w='40%' />
+        return <Skeleton h='96' w={isPortrait ? '100%' : '40%'} />
     }
 
     const [src, poster] = [trailers?.[0]?.data?.[480], trailers?.[0]?.preview];
@@ -24,7 +25,7 @@ const GameTrailer: FC<Props> = ({ gameId }: Props) => {
     }
 
     return (
-        <video src={src} poster={poster} controls width={"40%"} />
+        <video src={src} poster={poster} controls width={isPortrait ? '100%' : '40%'} />
     )
 }
 
