@@ -21,7 +21,7 @@ export interface GamesParamsState {
 export interface GamesParamsReducers {
     selectGenre: (genre: SelectedGenre) => void;
     deselectGenre: () => void;
-    selectPlatform: (platform: SelectedPlatform) => void;
-    selectOrderOption: (order: orderType) => void;
+    selectPlatform: (platform: SelectedPlatform | null) => void;
+    selectOrderOption: (order: orderType | null) => void;
     updateSearch: (search: string) => void;
 };
