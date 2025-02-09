@@ -18,7 +18,7 @@ const ExpandableText: FC<Props> = ({ children, textProps = {}, buttonProps = {},
         setIsExpanded((prev: boolean) => !prev);
     }
 
-    const maxLength = useBreakpointValue({ base: 250, lg: 350, xl: 500 });
+    const maxLength = useBreakpointValue({ base: 250, lg: 350, xl: 500 }) || 300;
 
     const getTruncatedText = (text: string): string => {
         if (text?.length <= maxLength)
