@@ -72,6 +72,8 @@ PlayScout integrates with the [RAWG API](https://rawg.io/apidocs) to fetch:
 - **🔴 Below 60%**
 - **🟡 60% to 79%**
 - **🟢 80% and above**
+- **🟠 Unscored Values**
+
 
 ## Usage Notes
 
