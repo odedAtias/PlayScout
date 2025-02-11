@@ -4,7 +4,7 @@ PlayScout is a platform that makes games accessible and is designed to help user
 
 ![PlayScout](PlayScout.png)
 
-[Website URL](https://play-scout-b12g65kgz-oded-atias-projects.vercel.app/games/3498)
+[Website URL](https://play-scout-b12g65kgz-oded-atias-projects.vercel.app)
 
 ## Features
 
