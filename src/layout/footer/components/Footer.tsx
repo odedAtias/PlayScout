@@ -21,7 +21,7 @@ export const Footer: FC = () => {
             boxShadow="0 -2px 5px rgba(0, 0, 0, 0.1)"
         >
             <Text textAlign="center" fontSize="1.2rem" noOfLines={1}>
-                PlayScout | Oded Atias | Copyright © 2024 - All rights reserved
+                PlayScout | Oded Atias | Copyright © 2025 - All rights reserved
             </Text>
         </HStack>
     );
